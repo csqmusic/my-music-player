@@ -1,953 +1,1323 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'PingFang SC'; -webkit-text-stroke: #000000}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #0000e9; -webkit-text-stroke: #000000}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #0d0e11; -webkit-text-stroke: #0d0e11}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #8f9096; -webkit-text-stroke: #8f9096}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'PingFang SC'; font-kerning: none}
-    span.s3 {font: 12.0px Helvetica; font-kerning: none}
-    span.s4 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s5 {font-kerning: none; color: #000000}
-    span.s6 {text-decoration: underline ; font-kerning: none}
-    span.s7 {font: 12.0px 'PingFang SC'; text-decoration: underline ; font-kerning: none}
-    span.s8 {font: 12.0px Helvetica; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-    span.s9 {font-kerning: none; color: #930093; -webkit-text-stroke: 0px #930093}
-    span.s10 {font-kerning: none; color: #325eee; -webkit-text-stroke: 0px #325eee}
-    span.s11 {font-kerning: none; color: #2a2c33; -webkit-text-stroke: 0px #2a2c33}
-    span.s12 {font-kerning: none; color: #42933e; -webkit-text-stroke: 0px #42933e}
-    span.s13 {font-kerning: none; color: #0d0e11; -webkit-text-stroke: 0px #0d0e11}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="zh-CN"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;</span><span class="s2">悦听</span><span class="s1"> · </span><span class="s2">私人音乐播放器</span><span class="s1">&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Font Awesome 6 (</span><span class="s2">免费图标库</span><span class="s1">) --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>* {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>user-select: none; /* </span><span class="s2">提升拖动体验，但文本可选不影响</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #0b1120 0%, #19213c 100%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-height: 100vh;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">登录面板</span><span class="s1"> &amp; </span><span class="s2">播放器面板公共卡片风格</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.glass-card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(20, 28, 40, 0.75);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(16px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">登录界面</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.login-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 420px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 2.2rem 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animation: fadeInUp 0.5s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.login-container h1 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(120deg, #e0e7ff, #a5b4fc);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>-webkit-background-clip: text;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-clip: text;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: transparent;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.login-container p {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #9ca3af;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.input-group {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: left;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.input-group label {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 0.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.85rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #cbd5e6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.input-group input {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0.9rem 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.35);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255, 255, 255, 0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>outline: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.input-group input:focus {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-color: #818cf8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.3);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.login-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(95deg, #4f46e5, #6366f1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 0.2s, box-shadow 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.login-btn:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.demo-tip {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #6b7280;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">主播放器</span><span class="s1"> (</span><span class="s2">初始隐藏</span><span class="s1">) */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.music-player {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 1300px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 98vw;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-height: 620px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(20px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animation: fadeInUp 0.5s ease;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.player-grid {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">左侧歌单栏</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.playlist-panel {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 280px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.45);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(4px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 1.5rem 0.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-right: 1px solid rgba(255, 255, 255, 0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.playlist-header {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: space-between;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: baseline;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 1rem 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid rgba(255,255,255,0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.playlist-header h3 {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #f0f3ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.logout-icon {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #9ca3af;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.logout-icon:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #f87171;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-list {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>list-style: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 480px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow-y: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0 0.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-item {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0.8rem 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.02);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-item:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(129, 140, 248, 0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-item.active {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(95deg, rgba(79, 70, 229, 0.6), rgba(99, 102, 241, 0.4));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 8px rgba(0,0,0,0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-cover-small {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 40px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 40px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #2d3748;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #a5b4fc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #eef2ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.song-artist {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.7rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #94a3b8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">右侧主内容区</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.main-panel {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 2rem 2rem 1.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.now-playing-card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 1.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.cover-art {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 110px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 110px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle at 30% 20%, #2d3a5e, #0f172a);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 28px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 3.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #818cf8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.track-info {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.track-name {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: -0.3px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.track-artist {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #b9c2d4;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">控制条</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.controls {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.35);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 1rem 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 1rem 0 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.playback-buttons {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 1.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.ctrl-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #e2e8f0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 1.6rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 48px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 48px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 50%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: inline-flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.ctrl-btn:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: scale(1.05);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.play-btn {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #1e293b;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 6px 14px rgba(0,0,0,0.3);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.play-btn:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: scale(1.08);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.progress-area {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #cbd5e1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.progress-bar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.progress-filled {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 0%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, #818cf8, #c084fc);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.volume-wrap {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>display: flex;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>align-items: center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gap: 8px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>justify-content: flex-end;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.volume-slider {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 4px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.3);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.volume-fill {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 80%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #a78bfa;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">歌词区域</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.lyrics-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.35);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 1.5rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 1rem 1.2rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>flex: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>min-height: 200px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-height: 280px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow-y: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.lyrics-title {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #9ca3af;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>letter-spacing: 1px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-left: 3px solid #818cf8;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding-left: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.lyric-line {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 8px 12px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 0.95rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #cbd5e6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: all 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 40px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line-height: 1.4;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.lyric-line.active {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #f0f3ff;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-weight: 600;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(129, 140, 248, 0.3);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: scale(1.02);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 6px rgba(0,0,0,0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* </span><span class="s2">滚动条</span><span class="s1"> */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 5px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-track {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.2);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>::-webkit-scrollbar-thumb {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #6366f1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@keyframes fadeInUp {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>from {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>opacity: 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>transform: translateY(30px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>to {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>opacity: 1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>transform: translateY(0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@media (max-width: 780px) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.playlist-panel {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>width: 100%;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>border-right: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>border-bottom: 1px solid rgba(255,255,255,0.1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>max-height: 280px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>overflow-y: auto;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.player-grid {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>flex-direction: column;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.track-name {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>font-size: 1.3rem;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- </span><span class="s2">登录界面</span><span class="s1"> --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="loginContainer" class="glass-card login-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;&lt;i class="fas fa-headphones"&gt;&lt;/i&gt; </span><span class="s2">酥青</span><span class="s1">·</span><span class="s2">音乐</span><span class="s1">&lt;/h1&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">    </span>&lt;p&gt;</span><span class="s1">登录后畅享私人歌单与歌词</span><span class="s3">&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="input-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;label&gt;&lt;i class="fas fa-user"&gt;&lt;/i&gt; </span><span class="s2">用户名</span><span class="s1">&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="username" placeholder="</span><span class="s2">任意昵称</span><span class="s1">" autocomplete="off"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="input-group"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;label&gt;&lt;i class="fas fa-lock"&gt;&lt;/i&gt; </span><span class="s2">密码</span><span class="s1">&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="password" id="password" placeholder="</span><span class="s2">随意输入即可</span><span class="s1">"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="login-btn" id="doLoginBtn"&gt;&lt;i class="fas fa-music"&gt;&lt;/i&gt; </span><span class="s2">进入音乐世界</span><span class="s1">&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="demo-tip"&gt;</span><span class="s4">✨</span><span class="s1"> </span><span class="s2">演示登录：任意账号</span><span class="s1">/</span><span class="s2">密码</span><span class="s1"> </span><span class="s2">点击即可</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- </span><span class="s2">主播放器界面</span><span class="s1"> --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="musicPlayer" class="music-player glass-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="player-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- </span><span class="s2">左侧歌单区域</span><span class="s1"> --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="playlist-panel"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="playlist-header"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3&gt;&lt;i class="fas fa-list-ul"&gt;&lt;/i&gt; </span><span class="s2">我的歌单</span><span class="s1">&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-sign-out-alt logout-icon" id="logoutBtn"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;ul class="song-list" id="songList"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;!-- </span><span class="s2">动态歌单渲染</span><span class="s1"> --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- </span><span class="s2">右侧主内容</span><span class="s1"> --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="main-panel"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="now-playing-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="cover-art"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-compact-disc"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="track-info"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="track-name" id="currentSongTitle"&gt;</span><span class="s2">未选择歌曲</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="track-artist" id="currentArtist"&gt;--&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="controls"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="playback-buttons"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button class="ctrl-btn" id="prevBtn"&gt;&lt;i class="fas fa-backward-step"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button class="ctrl-btn play-btn" id="playPauseBtn"&gt;&lt;i class="fas fa-play"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button class="ctrl-btn" id="nextBtn"&gt;&lt;i class="fas fa-forward-step"&gt;&lt;/i&gt;&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="progress-area"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span id="currentTime"&gt;0:00&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="progress-bar" id="progressBar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="progress-filled" id="progressFilled"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span id="duration"&gt;0:00&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="volume-wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-volume-down" style="color:#cbd5e6"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="volume-slider" id="volumeBar"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="volume-fill" id="volumeFill"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;i class="fas fa-volume-up" style="color:#cbd5e6"&gt;&lt;/i&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- </span><span class="s2">歌词显示区域</span><span class="s1"> --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="lyrics-container" id="lyricsPanel"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="lyrics-title"&gt;&lt;i class="fas fa-microphone-alt"&gt;&lt;/i&gt; </span><span class="s2">滚动歌词</span><span class="s1"> · </span><span class="s2">沉浸体验</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="lyricsContent"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="lyric-line"&gt;</span><span class="s4">✨</span><span class="s1"> </span><span class="s2">选择一首歌曲，开始聆听</span><span class="s1"> </span><span class="s4">✨</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// ---------- </span><span class="s2">歌曲库数据</span><span class="s1"> (</span><span class="s2">包含歌曲地址、歌词</span><span class="s1">LRC) ----------</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">使用</span><span class="s1"> SoundHelix </span><span class="s2">测试音频</span><span class="s1"> (</span><span class="s2">公开无版权限制，仅用于技术演示</span><span class="s1">)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const SONGS = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>id: 0,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>name: “</span><span class="s2">藏起的幸福</span><span class="s1">”,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>artist: “</span><span class="s2">花开大人</span><span class="s1">”,</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">            </span>src: "<a href="https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/%E8%97%8F%E8%B5%B7%E7%9A%84%E5%B9%B8%E7%A6%8F.mp3"><span class="s6">https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/</span><span class="s7">藏起的幸福</span><span class="s6">.mp3</span></a>",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lrc: `[00:00.00]</span><span class="s2">晨曦微光</span><span class="s1"> </span><span class="s2">洒落窗台</span></p>
-<p class="p1"><span class="s1">[00:08.50]</span><span class="s2">梦中旋律</span><span class="s1"> </span><span class="s2">轻轻徘徊</span></p>
-<p class="p1"><span class="s1">[00:16.00]</span><span class="s2">漫步云端</span><span class="s1"> </span><span class="s2">风吹过耳畔</span></p>
-<p class="p1"><span class="s1">[00:24.20]</span><span class="s2">这一刻世界</span><span class="s1"> </span><span class="s2">如此简单</span></p>
-<p class="p1"><span class="s1">[00:32.40]</span><span class="s2">听见花开的声音</span><span class="s1"> </span><span class="s2">绽放绚烂</span></p>
-<p class="p1"><span class="s1">[00:40.90]</span><span class="s2">跟随节拍</span><span class="s1"> </span><span class="s2">尽情释怀</span></p>
-<p class="p1"><span class="s1">[00:49.00]</span><span class="s2">旅途的尽头</span><span class="s1"> </span><span class="s2">有星辰大海</span></p>
-<p class="p1"><span class="s1">[00:57.30]</span><span class="s2">继续前行</span><span class="s1"> </span><span class="s2">不再孤单</span></p>
-<p class="p1"><span class="s1">[01:05.80]</span><span class="s2">晨曦的梦境</span><span class="s1"> </span><span class="s2">温柔期待</span></p>
-<p class="p1"><span class="s1">[01:14.00]</span><span class="s2">拥抱所有</span><span class="s1"> </span><span class="s2">美好未来</span><span class="s1">`</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>id: 1,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>name: “</span><span class="s2">温柔的晚安</span><span class="s1">”,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>artist: “</span><span class="s2">花开大人</span><span class="s1">”,</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">            </span>src: "<a href="https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/%E6%B8%A9%E6%9F%94%E7%9A%84%E6%99%9A%E5%AE%89%20(1).mp3"><span class="s6">https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/</span><span class="s7">温柔的晚安</span><span class="s6">%20(1).mp3</span></a>",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lrc: `[00:00.00]</span><span class="s2">霓虹灯闪烁</span><span class="s1"> </span><span class="s2">城市的脉搏</span></p>
-<p class="p1"><span class="s1">[00:07.20]</span><span class="s2">节奏跳动</span><span class="s1"> </span><span class="s2">夜色迷惑</span></p>
-<p class="p1"><span class="s1">[00:14.80]</span><span class="s2">穿梭在街头</span><span class="s1"> </span><span class="s2">自由的风</span></p>
-<p class="p1"><span class="s1">[00:22.50]</span><span class="s2">忘掉烦恼</span><span class="s1"> </span><span class="s2">这一刻放纵</span></p>
-<p class="p1"><span class="s1">[00:30.30]</span><span class="s2">电音涌动</span><span class="s1"> </span><span class="s2">灵魂失重</span></p>
-<p class="p1"><span class="s1">[00:38.00]</span><span class="s2">舞池中央</span><span class="s1"> </span><span class="s2">忘记时空</span></p>
-<p class="p1"><span class="s1">[00:45.70]</span><span class="s2">让心跳</span><span class="s1"> </span><span class="s2">跟随低音共鸣</span></p>
-<p class="p1"><span class="s1">[00:53.20]</span><span class="s2">整夜狂欢</span><span class="s1"> </span><span class="s2">直到天明</span></p>
-<p class="p1"><span class="s1">[01:01.00]</span><span class="s2">霓虹夜曲</span><span class="s1"> </span><span class="s2">永不终结</span></p>
-<p class="p1"><span class="s1">[01:08.80]</span><span class="s2">梦境与现实</span><span class="s1"> </span><span class="s2">模糊了边界</span><span class="s1">`</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>id: 2,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>name: “</span><span class="s2">慢慢来</span><span class="s1">”,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>artist: “</span><span class="s2">花开</span><span class="s1">”</span><span class="s2">大人</span><span class="s1">,</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">            </span>src: "<a href="https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/%E6%85%A2%E6%85%A2%E6%9D%A5.mp3"><span class="s6">https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/</span><span class="s7">慢慢来</span><span class="s6">.mp3</span></a>",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lrc: `[00:00.00]</span><span class="s2">青石小径</span><span class="s1"> </span><span class="s2">落叶纷飞</span></p>
-<p class="p1"><span class="s1">[00:09.30]</span><span class="s2">阳光透过</span><span class="s1"> </span><span class="s2">树梢的间隙</span></p>
-<p class="p1"><span class="s1">[00:18.00]</span><span class="s2">鸟儿轻唱</span><span class="s1"> </span><span class="s2">溪水潺潺</span></p>
-<p class="p1"><span class="s1">[00:26.20]</span><span class="s2">深呼吸</span><span class="s1"> </span><span class="s2">自然的香气</span></p>
-<p class="p1"><span class="s1">[00:34.50]</span><span class="s2">放下行囊</span><span class="s1"> </span><span class="s2">听风的故事</span></p>
-<p class="p1"><span class="s1">[00:43.00]</span><span class="s2">每一片叶子</span><span class="s1"> </span><span class="s2">都有回忆</span></p>
-<p class="p1"><span class="s1">[00:51.20]</span><span class="s2">森林漫游</span><span class="s1"> </span><span class="s2">忘记时间</span></p>
-<p class="p1"><span class="s1">[00:59.40]</span><span class="s2">返璞归真</span><span class="s1"> </span><span class="s2">简单如初</span></p>
-<p class="p1"><span class="s1">[01:08.00]</span><span class="s2">感受大地的温暖呼吸</span></p>
-<p class="p1"><span class="s1">[01:16.20]</span><span class="s2">让心自由</span><span class="s1"> </span><span class="s2">回归宁静</span><span class="s1">`</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// ---------- </span><span class="s2">全局变量</span><span class="s1"> ----------</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let currentSongIndex = 0;<span class="Apple-converted-space">          </span>// </span><span class="s2">当前播放歌曲索引</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let audio = new Audio();<span class="Apple-converted-space">            </span>// </span><span class="s2">主音频元素</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let currentLyrics = []; <span class="Apple-converted-space">            </span>// [{time, text}]</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let updateTimer = null; <span class="Apple-converted-space">            </span>// requestAnimationFrame or timeupdate </span><span class="s2">监听</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let isLoggedIn = false;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// DOM </span><span class="s2">元素</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const loginContainer = document.getElementById('loginContainer');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const musicPlayerDiv = document.getElementById('musicPlayer');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const songListEl = document.getElementById('songList');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const playPauseBtn = document.getElementById('playPauseBtn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const prevBtn = document.getElementById('prevBtn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const nextBtn = document.getElementById('nextBtn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const progressBar = document.getElementById('progressBar');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const progressFilled = document.getElementById('progressFilled');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const currentTimeSpan = document.getElementById('currentTime');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const durationSpan = document.getElementById('duration');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const volumeBar = document.getElementById('volumeBar');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const volumeFill = document.getElementById('volumeFill');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const currentSongTitleSpan = document.getElementById('currentSongTitle');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const currentArtistSpan = document.getElementById('currentArtist');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const lyricsContentDiv = document.getElementById('lyricsContent');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const logoutBtn = document.getElementById('logoutBtn');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">辅助函数</span><span class="s1">: </span><span class="s2">时间格式化</span><span class="s1"> mm:ss</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function formatTime(seconds) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (isNaN(seconds)) return "0:00";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const mins = Math.floor(seconds / 60);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const secs = Math.floor(seconds % 60);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return `${mins}:${secs &lt; 10 ? '0' + secs : secs}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">解析</span><span class="s1">LRC</span><span class="s2">文本</span><span class="s1"> -&gt; </span><span class="s2">返回数组</span><span class="s1"> [{time, text}]</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function parseLRC(lrcText) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const lines = lrcText.split('\n');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const parsed = [];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const timeRegex = /\[(\d{2}):(\d{2})\.(\d{2,3})\]/;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (let line of lines) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>line = line.trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!line) continue;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const match = line.match(timeRegex);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (match) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const minutes = parseInt(match[1], 10);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const seconds = parseInt(match[2], 10);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const millis = parseInt(match[3], 10);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let timeSec = minutes * 60 + seconds + millis / 1000;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const text = line.replace(timeRegex, '').trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (text) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>parsed.push({ time: timeSec, text: text });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span>// </span><span class="s1">没有时间标签的文本忽略或者作为默认？忽略</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">按时间排序</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>parsed.sort((a,b) =&gt; a.time - b.time);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return parsed;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">加载歌曲</span><span class="s1">: </span><span class="s2">切换</span><span class="s1">src, </span><span class="s2">更新</span><span class="s1">UI, </span><span class="s2">解析歌词</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function loadSong(index) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (index &lt; 0) index = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (index &gt;= SONGS.length) index = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentSongIndex = index;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const song = SONGS[currentSongIndex];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">更新</span><span class="s1">UI</span><span class="s2">文本</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentSongTitleSpan.innerText = song.name;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentArtistSpan.innerText = song.artist;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">切换音频源</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const wasPlaying = isPlaying;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.pause();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.src = song.src;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.load();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">解析歌词</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentLyrics = parseLRC(song.lrc);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>renderLyrics(0); // </span><span class="s2">重置歌词显示，高亮第</span><span class="s1">0</span><span class="s2">行或占位</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">重置进度条</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>progressFilled.style.width = '0%';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>currentTimeSpan.innerText = '0:00';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>durationSpan.innerText = '0:00';</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">如果加载前正在播放，则自动播放</span><span class="s1"> (</span><span class="s2">由于</span><span class="s1">load</span><span class="s2">后需要等待</span><span class="s1">canplay, </span><span class="s2">但为了手势限制</span><span class="s1">, </span><span class="s2">调用</span><span class="s1">play)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (wasPlaying) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const playPromise = audio.play();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (playPromise !== undefined) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>playPromise.then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayButtonIcon(true);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}).catch(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// </span><span class="s2">自动播放被阻止，暂停状态</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">更新歌单高亮</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>highlightActiveSong();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">获取总时长后更新</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.onloadedmetadata = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!isNaN(audio.duration)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>durationSpan.innerText = formatTime(audio.duration);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">    </span>// </span><span class="s1">根据当前播放时间更新歌词高亮</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updateLyricsByTime(currentTime) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (!currentLyrics.length) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (lyricsContentDiv.innerHTML.trim() === '' || lyricsContentDiv.children.length === 0) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>lyricsContentDiv.innerHTML = '&lt;div class="lyric-line"&gt;</span><span class="s4">🎵</span><span class="s1"> </span><span class="s2">暂无滚动歌词，享受旋律吧</span><span class="s1"> </span><span class="s4">🎵</span><span class="s1">&lt;/div&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let activeIndex = -1;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (let i = 0; i &lt; currentLyrics.length; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (currentTime &gt;= currentLyrics[i].time) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>activeIndex = i;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>break;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (activeIndex === -1 &amp;&amp; currentLyrics.length &gt; 0 &amp;&amp; currentTime &lt; currentLyrics[0].time) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>activeIndex = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>renderLyrics(activeIndex);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">    </span>// </span><span class="s1">渲染歌词面板，高亮某一行并自动滚动</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function renderLyrics(activeIndex) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (!currentLyrics.length) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>lyricsContentDiv.innerHTML = '&lt;div class="lyric-line"&gt;</span><span class="s4">✨</span><span class="s1"> </span><span class="s2">纯音乐</span><span class="s1"> / </span><span class="s2">无歌词</span><span class="s1"> </span><span class="s4">✨</span><span class="s1">&lt;/div&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let html = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (let i = 0; i &lt; currentLyrics.length; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const line = currentLyrics[i].text;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const activeClass = (i === activeIndex) ? 'active' : '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>html += `&lt;div class="lyric-line ${activeClass}" data-line-index="${i}"&gt;${escapeHtml(line)}&lt;/div&gt;`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lyricsContentDiv.innerHTML = html;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (activeIndex &gt;= 0) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const activeElement = lyricsContentDiv.querySelector(`.lyric-line.active`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (activeElement) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>activeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">简单防</span><span class="s1">XSS</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function escapeHtml(str) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return str.replace(/[&amp;&lt;&gt;]/g, function(m) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (m === '&amp;') return '&amp;amp;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (m === '&lt;') return '&amp;lt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (m === '&gt;') return '&amp;gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return m;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">播放</span><span class="s1">/</span><span class="s2">暂停切换</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function togglePlayPause() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (audio.src === '') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>loadSong(currentSongIndex);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (isPlaying) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>audio.pause();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const playPromise = audio.play();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (playPromise !== undefined) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>playPromise.then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayButtonIcon(true);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}).catch(err =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.warn("</span><span class="s2">播放失败</span><span class="s1">:", err);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function updatePlayButtonIcon(playing) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (playing) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>playPauseBtn.innerHTML = '&lt;i class="fas fa-pause"&gt;&lt;/i&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>playPauseBtn.innerHTML = '&lt;i class="fas fa-play"&gt;&lt;/i&gt;';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">下一首</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function nextSong() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let newIndex = (currentSongIndex + 1) % SONGS.length;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>loadSong(newIndex);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">自动播放</span><span class="s1">(</span><span class="s2">手势触发，可以播放</span><span class="s1">)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.play().then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updatePlayButtonIcon(true);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}).catch(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function prevSong() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let newIndex = (currentSongIndex - 1 + SONGS.length) % SONGS.length;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>loadSong(newIndex);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.play().then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updatePlayButtonIcon(true);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}).catch(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">进度条拖动</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function setProgress(e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const rect = progressBar.getBoundingClientRect();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let clickX = e.clientX - rect.left;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let percent = clickX / rect.width;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>percent = Math.min(1, Math.max(0, percent));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (audio.duration &amp;&amp; !isNaN(audio.duration)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>audio.currentTime = percent * audio.duration;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">音量控制</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function setVolume(e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const rect = volumeBar.getBoundingClientRect();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let clickX = e.clientX - rect.left;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let vol = clickX / rect.width;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>vol = Math.min(1, Math.max(0, vol));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.volume = vol;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>volumeFill.style.width = (vol * 100) + '%';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">初始化音量</span><span class="s1">UI</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function initVolume() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.volume = 0.7;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>volumeFill.style.width = '70%';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">歌单渲染</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function renderPlaylist() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>songListEl.innerHTML = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>SONGS.forEach((song, idx) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const li = document.createElement('li');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>li.className = 'song-item';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (idx === currentSongIndex) li.classList.add('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>li.innerHTML = `</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="song-cover-small"&gt;&lt;i class="fas fa-music"&gt;&lt;/i&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="song-info"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="song-title"&gt;${escapeHtml(song.name)}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="song-artist"&gt;${escapeHtml(song.artist)}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>li.addEventListener('click', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (currentSongIndex === idx &amp;&amp; audio.src &amp;&amp; audio.src.includes(song.src)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// </span><span class="s2">相同歌曲不重新加载，但若暂停则播放</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!isPlaying) togglePlayPause();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>loadSong(idx);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// </span><span class="s2">用户主动点击歌单后自动播放</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>audio.play().then(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayButtonIcon(true);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}).catch(() =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updatePlayButtonIcon(false);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>songListEl.appendChild(li);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function highlightActiveSong() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const items = document.querySelectorAll('.song-item');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>items.forEach((item, idx) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (idx === currentSongIndex) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>item.classList.add('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>item.classList.remove('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">时间更新监听</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function bindAudioEvents() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.addEventListener('timeupdate', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (audio.duration &amp;&amp; !isNaN(audio.duration)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const percent = (audio.currentTime / audio.duration) * 100;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>progressFilled.style.width = percent + '%';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>currentTimeSpan.innerText = formatTime(audio.currentTime);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateLyricsByTime(audio.currentTime);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.addEventListener('ended', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// </span><span class="s2">自动下一首</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>nextSong();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.addEventListener('canplay', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!isNaN(audio.duration)) durationSpan.innerText = formatTime(audio.duration);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">退出登录</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function logout() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>isLoggedIn = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>audio.pause();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>isPlaying = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>loginContainer.style.display = 'flex';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>musicPlayerDiv.style.display = 'none';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">清空登录状态</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>sessionStorage.removeItem('musicLogged');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">登录验证</span></p>
-<p class="p5"><span class="s8"><span class="Apple-converted-space">    </span></span><span class="s9">function</span><span class="s1"> </span><span class="s10">login</span><span class="s11">(</span><span class="s1">username</span><span class="s11">,</span><span class="s1"> password</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s9">if</span><span class="s1"> </span><span class="s11">(</span><span class="s1">username </span><span class="s10">===</span><span class="s1"> </span><span class="s12">“suqing”</span><span class="s1"> </span><span class="s10">&amp;&amp;</span><span class="s1"> password </span><span class="s10">===</span><span class="s1"> </span><span class="s12">“suqing”</span><span class="s11">)</span><span class="s1"> </span><span class="s11">{</span></p>
-<p class="p6"><span class="s13"><span class="Apple-converted-space">        </span></span><span class="s1"><i>// 登录成功...</i><i></i></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>isLoggedIn = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>sessionStorage.setItem('musicLogged', 'true');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>loginContainer.style.display = 'none';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>musicPlayerDiv.style.display = 'block';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// </span><span class="s2">初始化播放器核心</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!audio.src) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>loadSong(0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// </span><span class="s2">刷新界面歌单高亮</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>highlightActiveSong();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>renderPlaylist(); // </span><span class="s2">重新渲染歌单确保事件</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>renderPlaylist();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>bindAudioEvents();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>initVolume();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// </span><span class="s2">如果当前无歌词内容</span><span class="s1"> </span><span class="s2">就显示提示</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (currentLyrics.length === 0 &amp;&amp; SONGS[currentSongIndex]) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const initLrc = parseLRC(SONGS[currentSongIndex].lrc);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>currentLyrics = initLrc;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>renderLyrics(0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updateLyricsByTime(0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>alert("</span><span class="s2">请填写用户名和密码</span><span class="s1"> (</span><span class="s2">任意内容即可</span><span class="s1">)");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">事件绑定</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function bindControls() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>playPauseBtn.addEventListener('click', togglePlayPause);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>prevBtn.addEventListener('click', prevSong);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>nextBtn.addEventListener('click', nextSong);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>progressBar.addEventListener('click', setProgress);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>volumeBar.addEventListener('click', setVolume);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>logoutBtn.addEventListener('click', logout);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('doLoginBtn').addEventListener('click', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const user = document.getElementById('username').value;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const pwd = document.getElementById('password').value;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>login(user, pwd);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// </span><span class="s2">允许回车登录</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const pwdInput = document.getElementById('password');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>pwdInput.addEventListener('keypress', (e) =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (e.key === 'Enter') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('doLoginBtn').click();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">检查</span><span class="s1">sessionStorage</span><span class="s2">自动登录</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function checkAutoLogin() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (sessionStorage.getItem('musicLogged') === 'true') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// </span><span class="s2">自动填充演示</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('username').value = "</span><span class="s2">乐迷</span><span class="s1">";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('password').value = "demo";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>login("</span><span class="s2">乐迷</span><span class="s1">", "demo");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>loginContainer.style.display = 'flex';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>musicPlayerDiv.style.display = 'none';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">初始化</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function init() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>bindControls();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>checkAutoLogin();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>init();</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
-</body>
-</html>
+{\rtf1\ansi\ansicpg936\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\fnil\fcharset0 AppleColorEmoji;
+\f3\fnil\fcharset0 Menlo-Regular;\f4\fnil\fcharset0 Menlo-Italic;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue227;\red0\green0\blue233;
+\red12\green12\blue14;\red127\green0\blue129;\red38\green66\blue233;\red32\green33\blue38;\red54\green132\blue48;
+\red124\green125\blue132;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c91373;\cssrgb\c0\c0\c93333;
+\cssrgb\c5098\c5490\c6667;\cssrgb\c57647\c0\c57647;\cssrgb\c19608\c36863\c93333;\cssrgb\c16471\c17255\c20000;\cssrgb\c25882\c57647\c24314;
+\cssrgb\c56078\c56471\c58824;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+<!DOCTYPE html>\
+<html lang="zh-CN">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">\
+    <title>
+\f1 \'d4\'c3\'cc\'fd
+\f0  \'b7 
+\f1 \'cb\'bd\'c8\'cb\'d2\'f4\'c0\'d6\'b2\'a5\'b7\'c5\'c6\'f7
+\f0 </title>\
+    <!-- Font Awesome 6 (
+\f1 \'c3\'e2\'b7\'d1\'cd\'bc\'b1\'ea\'bf\'e2
+\f0 ) -->\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">\
+    <style>\
+        * \{\
+            margin: 0;\
+            padding: 0;\
+            box-sizing: border-box;\
+            user-select: none; /* 
+\f1 \'cc\'e1\'c9\'fd\'cd\'cf\'b6\'af\'cc\'e5\'d1\'e9\'a3\'ac\'b5\'ab\'ce\'c4\'b1\'be\'bf\'c9\'d1\'a1\'b2\'bb\'d3\'b0\'cf\'ec
+\f0  */\
+        \}\
+\
+        body \{\
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\
+            background: linear-gradient(135deg, #0b1120 0%, #19213c 100%);\
+            min-height: 100vh;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            padding: 20px;\
+        \}\
+\
+        /* 
+\f1 \'b5\'c7\'c2\'bc\'c3\'e6\'b0\'e5
+\f0  & 
+\f1 \'b2\'a5\'b7\'c5\'c6\'f7\'c3\'e6\'b0\'e5\'b9\'ab\'b9\'b2\'bf\'a8\'c6\'ac\'b7\'e7\'b8\'f1
+\f0  */\
+        .glass-card \{\
+            background: rgba(20, 28, 40, 0.75);\
+            backdrop-filter: blur(16px);\
+            border-radius: 2rem;\
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08);\
+            transition: all 0.3s ease;\
+        \}\
+\
+        /* 
+\f1 \'b5\'c7\'c2\'bc\'bd\'e7\'c3\'e6
+\f0  */\
+        .login-container \{\
+            width: 100%;\
+            max-width: 420px;\
+            padding: 2.2rem 2rem;\
+            text-align: center;\
+            animation: fadeInUp 0.5s ease;\
+        \}\
+        .login-container h1 \{\
+            font-size: 2rem;\
+            font-weight: 700;\
+            background: linear-gradient(120deg, #e0e7ff, #a5b4fc);\
+            -webkit-background-clip: text;\
+            background-clip: text;\
+            color: transparent;\
+            margin-bottom: 0.5rem;\
+        \}\
+        .login-container p \{\
+            color: #9ca3af;\
+            margin-bottom: 2rem;\
+            font-size: 0.9rem;\
+        \}\
+        .input-group \{\
+            margin-bottom: 1.5rem;\
+            text-align: left;\
+        \}\
+        .input-group label \{\
+            display: block;\
+            margin-bottom: 0.5rem;\
+            font-size: 0.85rem;\
+            font-weight: 500;\
+            color: #cbd5e6;\
+        \}\
+        .input-group input \{\
+            width: 100%;\
+            padding: 0.9rem 1rem;\
+            background: rgba(0, 0, 0, 0.35);\
+            border: 1px solid rgba(255, 255, 255, 0.2);\
+            border-radius: 1.2rem;\
+            font-size: 1rem;\
+            color: white;\
+            outline: none;\
+            transition: all 0.2s;\
+        \}\
+        .input-group input:focus \{\
+            border-color: #818cf8;\
+            box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.3);\
+        \}\
+        .login-btn \{\
+            width: 100%;\
+            padding: 0.9rem;\
+            background: linear-gradient(95deg, #4f46e5, #6366f1);\
+            border: none;\
+            border-radius: 2rem;\
+            font-weight: 600;\
+            font-size: 1rem;\
+            color: white;\
+            cursor: pointer;\
+            transition: transform 0.2s, box-shadow 0.2s;\
+        \}\
+        .login-btn:hover \{\
+            transform: translateY(-2px);\
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);\
+        \}\
+        .demo-tip \{\
+            margin-top: 1.5rem;\
+            font-size: 0.75rem;\
+            color: #6b7280;\
+        \}\
+\
+        /* 
+\f1 \'d6\'f7\'b2\'a5\'b7\'c5\'c6\'f7
+\f0  (
+\f1 \'b3\'f5\'ca\'bc\'d2\'fe\'b2\'d8
+\f0 ) */\
+        .music-player \{\
+            display: none;\
+            width: 1300px;\
+            max-width: 98vw;\
+            min-height: 620px;\
+            backdrop-filter: blur(20px);\
+            border-radius: 2rem;\
+            overflow: hidden;\
+            animation: fadeInUp 0.5s ease;\
+        \}\
+        .player-grid \{\
+            display: flex;\
+            flex-wrap: wrap;\
+            height: 100%;\
+        \}\
+        /* 
+\f1 \'d7\'f3\'b2\'e0\'b8\'e8\'b5\'a5\'c0\'b8
+\f0  */\
+        .playlist-panel \{\
+            width: 280px;\
+            background: rgba(0, 0, 0, 0.45);\
+            backdrop-filter: blur(4px);\
+            padding: 1.5rem 0.8rem;\
+            border-right: 1px solid rgba(255, 255, 255, 0.1);\
+        \}\
+        .playlist-header \{\
+            display: flex;\
+            justify-content: space-between;\
+            align-items: baseline;\
+            padding: 0 1rem 1rem;\
+            border-bottom: 1px solid rgba(255,255,255,0.1);\
+            margin-bottom: 1.2rem;\
+        \}\
+        .playlist-header h3 \{\
+            color: #f0f3ff;\
+            font-weight: 600;\
+            font-size: 1.2rem;\
+        \}\
+        .logout-icon \{\
+            color: #9ca3af;\
+            cursor: pointer;\
+            font-size: 1.2rem;\
+            transition: 0.2s;\
+        \}\
+        .logout-icon:hover \{\
+            color: #f87171;\
+        \}\
+        .song-list \{\
+            list-style: none;\
+            max-height: 480px;\
+            overflow-y: auto;\
+            padding: 0 0.5rem;\
+        \}\
+        .song-item \{\
+            display: flex;\
+            align-items: center;\
+            gap: 12px;\
+            padding: 0.8rem 1rem;\
+            margin-bottom: 6px;\
+            border-radius: 1.2rem;\
+            cursor: pointer;\
+            transition: all 0.2s;\
+            background: rgba(255,255,255,0.02);\
+        \}\
+        .song-item:hover \{\
+            background: rgba(129, 140, 248, 0.2);\
+        \}\
+        .song-item.active \{\
+            background: linear-gradient(95deg, rgba(79, 70, 229, 0.6), rgba(99, 102, 241, 0.4));\
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);\
+        \}\
+        .song-cover-small \{\
+            width: 40px;\
+            height: 40px;\
+            background: #2d3748;\
+            border-radius: 12px;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            color: #a5b4fc;\
+            font-size: 1.2rem;\
+        \}\
+        .song-info \{\
+            flex: 1;\
+        \}\
+        .song-title \{\
+            font-weight: 600;\
+            color: #eef2ff;\
+            font-size: 0.9rem;\
+        \}\
+        .song-artist \{\
+            font-size: 0.7rem;\
+            color: #94a3b8;\
+        \}\
+        /* 
+\f1 \'d3\'d2\'b2\'e0\'d6\'f7\'c4\'da\'c8\'dd\'c7\'f8
+\f0  */\
+        .main-panel \{\
+            flex: 1;\
+            padding: 2rem 2rem 1.8rem;\
+            display: flex;\
+            flex-direction: column;\
+        \}\
+        .now-playing-card \{\
+            display: flex;\
+            align-items: center;\
+            gap: 1.8rem;\
+            flex-wrap: wrap;\
+            margin-bottom: 1.5rem;\
+        \}\
+        .cover-art \{\
+            width: 110px;\
+            height: 110px;\
+            background: radial-gradient(circle at 30% 20%, #2d3a5e, #0f172a);\
+            border-radius: 28px;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            font-size: 3.5rem;\
+            color: #818cf8;\
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);\
+        \}\
+        .track-info \{\
+            flex: 1;\
+        \}\
+        .track-name \{\
+            font-size: 1.8rem;\
+            font-weight: 700;\
+            color: white;\
+            letter-spacing: -0.3px;\
+        \}\
+        .track-artist \{\
+            color: #b9c2d4;\
+            margin-top: 6px;\
+        \}\
+        /* 
+\f1 \'bf\'d8\'d6\'c6\'cc\'f5
+\f0  */\
+        .controls \{\
+            background: rgba(0,0,0,0.35);\
+            border-radius: 2rem;\
+            padding: 1rem 1.5rem;\
+            margin: 1rem 0 1.5rem;\
+        \}\
+        .playback-buttons \{\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            gap: 1.8rem;\
+            margin-bottom: 1rem;\
+        \}\
+        .ctrl-btn \{\
+            background: none;\
+            border: none;\
+            color: #e2e8f0;\
+            font-size: 1.6rem;\
+            cursor: pointer;\
+            transition: 0.2s;\
+            width: 48px;\
+            height: 48px;\
+            border-radius: 50%;\
+            display: inline-flex;\
+            align-items: center;\
+            justify-content: center;\
+        \}\
+        .ctrl-btn:hover \{\
+            background: rgba(255,255,255,0.1);\
+            transform: scale(1.05);\
+        \}\
+        .play-btn \{\
+            background: white;\
+            color: #1e293b;\
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);\
+        \}\
+        .play-btn:hover \{\
+            transform: scale(1.08);\
+        \}\
+        .progress-area \{\
+            display: flex;\
+            align-items: center;\
+            gap: 12px;\
+            font-size: 0.75rem;\
+            color: #cbd5e1;\
+        \}\
+        .progress-bar \{\
+            flex: 1;\
+            height: 5px;\
+            background: rgba(255,255,255,0.2);\
+            border-radius: 10px;\
+            cursor: pointer;\
+            position: relative;\
+        \}\
+        .progress-filled \{\
+            width: 0%;\
+            height: 100%;\
+            background: linear-gradient(90deg, #818cf8, #c084fc);\
+            border-radius: 10px;\
+            position: relative;\
+        \}\
+        .volume-wrap \{\
+            display: flex;\
+            align-items: center;\
+            gap: 8px;\
+            margin-top: 12px;\
+            justify-content: flex-end;\
+        \}\
+        .volume-slider \{\
+            width: 100px;\
+            height: 4px;\
+            background: rgba(255,255,255,0.3);\
+            border-radius: 5px;\
+            cursor: pointer;\
+        \}\
+        .volume-fill \{\
+            width: 80%;\
+            height: 100%;\
+            background: #a78bfa;\
+            border-radius: 5px;\
+        \}\
+        /* 
+\f1 \'b8\'e8\'b4\'ca\'c7\'f8\'d3\'f2
+\f0  */\
+        .lyrics-container \{\
+            background: rgba(0,0,0,0.35);\
+            border-radius: 1.5rem;\
+            padding: 1rem 1.2rem;\
+            flex: 1;\
+            min-height: 200px;\
+            max-height: 280px;\
+            overflow-y: auto;\
+            scroll-behavior: smooth;\
+        \}\
+        .lyrics-title \{\
+            font-size: 0.8rem;\
+            color: #9ca3af;\
+            letter-spacing: 1px;\
+            margin-bottom: 12px;\
+            border-left: 3px solid #818cf8;\
+            padding-left: 10px;\
+        \}\
+        .lyric-line \{\
+            padding: 8px 12px;\
+            font-size: 0.95rem;\
+            color: #cbd5e6;\
+            transition: all 0.2s;\
+            border-radius: 40px;\
+            line-height: 1.4;\
+        \}\
+        .lyric-line.active \{\
+            color: #f0f3ff;\
+            font-weight: 600;\
+            background: rgba(129, 140, 248, 0.3);\
+            transform: scale(1.02);\
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);\
+        \}\
+        /* 
+\f1 \'b9\'f6\'b6\'af\'cc\'f5
+\f0  */\
+        ::-webkit-scrollbar \{\
+            width: 5px;\
+        \}\
+        ::-webkit-scrollbar-track \{\
+            background: rgba(0,0,0,0.2);\
+            border-radius: 10px;\
+        \}\
+        ::-webkit-scrollbar-thumb \{\
+            background: #6366f1;\
+            border-radius: 10px;\
+        \}\
+        @keyframes fadeInUp \{\
+            from \{\
+                opacity: 0;\
+                transform: translateY(30px);\
+            \}\
+            to \{\
+                opacity: 1;\
+                transform: translateY(0);\
+            \}\
+        \}\
+        @media (max-width: 780px) \{\
+            .playlist-panel \{\
+                width: 100%;\
+                border-right: none;\
+                border-bottom: 1px solid rgba(255,255,255,0.1);\
+                max-height: 280px;\
+                overflow-y: auto;\
+            \}\
+            .player-grid \{\
+                flex-direction: column;\
+            \}\
+            .track-name \{\
+                font-size: 1.3rem;\
+            \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+\
+<!-- 
+\f1 \'b5\'c7\'c2\'bc\'bd\'e7\'c3\'e6
+\f0  -->\
+<div id="loginContainer" class="glass-card login-container">\
+    <h1><i class="fas fa-headphones"></i> 
+\f1 \'cb\'d6\'c7\'e0
+\f0 \'b7
+\f1 \'d2\'f4\'c0\'d6
+\f0 </h1>\
+    <p>
+\f1 \'b5\'c7\'c2\'bc\'ba\'f3\'b3\'a9\'cf\'ed\'cb\'bd\'c8\'cb\'b8\'e8\'b5\'a5\'d3\'eb\'b8\'e8\'b4\'ca
+\f0 </p>
+\f1 \
+
+\f0     <div class="input-group">\
+        <label><i class="fas fa-user"></i> 
+\f1 \'d3\'c3\'bb\'a7\'c3\'fb
+\f0 </label>\
+        <input type="text" id="username" placeholder="
+\f1 \'c8\'ce\'d2\'e2\'ea\'c7\'b3\'c6
+\f0 " autocomplete="off">\
+    </div>\
+    <div class="input-group">\
+        <label><i class="fas fa-lock"></i> 
+\f1 \'c3\'dc\'c2\'eb
+\f0 </label>\
+        <input type="password" id="password" placeholder="
+\f1 \'cb\'e6\'d2\'e2\'ca\'e4\'c8\'eb\'bc\'b4\'bf\'c9
+\f0 ">\
+    </div>\
+    <button class="login-btn" id="doLoginBtn"><i class="fas fa-music"></i> 
+\f1 \'bd\'f8\'c8\'eb\'d2\'f4\'c0\'d6\'ca\'c0\'bd\'e7
+\f0 </button>\
+    <div class="demo-tip">
+\f2 \uc0\u10024 
+\f0  
+\f1 \'d1\'dd\'ca\'be\'b5\'c7\'c2\'bc\'a3\'ba\'c8\'ce\'d2\'e2\'d5\'cb\'ba\'c5
+\f0 /
+\f1 \'c3\'dc\'c2\'eb
+\f0  
+\f1 \'b5\'e3\'bb\'f7\'bc\'b4\'bf\'c9
+\f0 </div>\
+</div>\
+\
+<!-- 
+\f1 \'d6\'f7\'b2\'a5\'b7\'c5\'c6\'f7\'bd\'e7\'c3\'e6
+\f0  -->\
+<div id="musicPlayer" class="music-player glass-card">\
+    <div class="player-grid">\
+        <!-- 
+\f1 \'d7\'f3\'b2\'e0\'b8\'e8\'b5\'a5\'c7\'f8\'d3\'f2
+\f0  -->\
+        <div class="playlist-panel">\
+            <div class="playlist-header">\
+                <h3><i class="fas fa-list-ul"></i> 
+\f1 \'ce\'d2\'b5\'c4\'b8\'e8\'b5\'a5
+\f0 </h3>\
+                <i class="fas fa-sign-out-alt logout-icon" id="logoutBtn"></i>\
+            </div>\
+            <ul class="song-list" id="songList">\
+                <!-- 
+\f1 \'b6\'af\'cc\'ac\'b8\'e8\'b5\'a5\'e4\'d6\'c8\'be
+\f0  -->\
+            </ul>\
+        </div>\
+        <!-- 
+\f1 \'d3\'d2\'b2\'e0\'d6\'f7\'c4\'da\'c8\'dd
+\f0  -->\
+        <div class="main-panel">\
+            <div class="now-playing-card">\
+                <div class="cover-art">\
+                    <i class="fas fa-compact-disc"></i>\
+                </div>\
+                <div class="track-info">\
+                    <div class="track-name" id="currentSongTitle">
+\f1 \'ce\'b4\'d1\'a1\'d4\'f1\'b8\'e8\'c7\'fa
+\f0 </div>\
+                    <div class="track-artist" id="currentArtist">--</div>\
+                </div>\
+            </div>\
+            <div class="controls">\
+                <div class="playback-buttons">\
+                    <button class="ctrl-btn" id="prevBtn"><i class="fas fa-backward-step"></i></button>\
+                    <button class="ctrl-btn play-btn" id="playPauseBtn"><i class="fas fa-play"></i></button>\
+                    <button class="ctrl-btn" id="nextBtn"><i class="fas fa-forward-step"></i></button>\
+                </div>\
+                <div class="progress-area">\
+                    <span id="currentTime">0:00</span>\
+                    <div class="progress-bar" id="progressBar">\
+                        <div class="progress-filled" id="progressFilled"></div>\
+                    </div>\
+                    <span id="duration">0:00</span>\
+                </div>\
+                <div class="volume-wrap">\
+                    <i class="fas fa-volume-down" style="color:#cbd5e6"></i>\
+                    <div class="volume-slider" id="volumeBar">\
+                        <div class="volume-fill" id="volumeFill"></div>\
+                    </div>\
+                    <i class="fas fa-volume-up" style="color:#cbd5e6"></i>\
+                </div>\
+            </div>\
+            <!-- 
+\f1 \'b8\'e8\'b4\'ca\'cf\'d4\'ca\'be\'c7\'f8\'d3\'f2
+\f0  -->\
+            <div class="lyrics-container" id="lyricsPanel">\
+                <div class="lyrics-title"><i class="fas fa-microphone-alt"></i> 
+\f1 \'b9\'f6\'b6\'af\'b8\'e8\'b4\'ca
+\f0  \'b7 
+\f1 \'b3\'c1\'bd\'fe\'cc\'e5\'d1\'e9
+\f0 </div>\
+                <div id="lyricsContent">\
+                    <div class="lyric-line">
+\f2 \uc0\u10024 
+\f0  
+\f1 \'d1\'a1\'d4\'f1\'d2\'bb\'ca\'d7\'b8\'e8\'c7\'fa\'a3\'ac\'bf\'aa\'ca\'bc\'f1\'f6\'cc\'fd
+\f0  
+\f2 \uc0\u10024 
+\f0 </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>\
+\
+<script>\
+    // ---------- 
+\f1 \'b8\'e8\'c7\'fa\'bf\'e2\'ca\'fd\'be\'dd
+\f0  (
+\f1 \'b0\'fc\'ba\'ac\'b8\'e8\'c7\'fa\'b5\'d8\'d6\'b7\'a1\'a2\'b8\'e8\'b4\'ca
+\f0 LRC) ----------\
+    // 
+\f1 \'ca\'b9\'d3\'c3
+\f0  SoundHelix 
+\f1 \'b2\'e2\'ca\'d4\'d2\'f4\'c6\'b5
+\f0  (
+\f1 \'b9\'ab\'bf\'aa\'ce\'de\'b0\'e6\'c8\'a8\'cf\'de\'d6\'c6\'a3\'ac\'bd\'f6\'d3\'c3\'d3\'da\'bc\'bc\'ca\'f5\'d1\'dd\'ca\'be
+\f0 )\
+    const SONGS = [\
+        \{\
+            id: 0,\
+            name: \'93
+\f1 \'b2\'d8\'c6\'f0\'b5\'c4\'d0\'d2\'b8\'a3
+\f0 \'94,\
+            artist: \'93
+\f1 \'bb\'a8\'bf\'aa\'b4\'f3\'c8\'cb
+\f0 \'94,\
+\pard\pardeftab720\partightenfactor0
+\cf3             src: "{\field{\*\fldinst{HYPERLINK "https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/%E8%97%8F%E8%B5%B7%E7%9A%84%E5%B9%B8%E7%A6%8F.mp3"}}{\fldrslt \cf4 \ul \ulc4 https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/
+\f1 \'b2\'d8\'c6\'f0\'b5\'c4\'d0\'d2\'b8\'a3
+\f0 .mp3}}",\
+\pard\pardeftab720\partightenfactor0
+\cf0             lrc: `[00:00.00]
+\f1 \'b3\'bf\'ea\'d8\'ce\'a2\'b9\'e2
+\f0  
+\f1 \'c8\'f7\'c2\'e4\'b4\'b0\'cc\'a8
+\f0 \
+[00:08.50]
+\f1 \'c3\'ce\'d6\'d0\'d0\'fd\'c2\'c9
+\f0  
+\f1 \'c7\'e1\'c7\'e1\'c5\'c7\'bb\'b2
+\f0 \
+[00:16.00]
+\f1 \'c2\'fe\'b2\'bd\'d4\'c6\'b6\'cb
+\f0  
+\f1 \'b7\'e7\'b4\'b5\'b9\'fd\'b6\'fa\'c5\'cf
+\f0 \
+[00:24.20]
+\f1 \'d5\'e2\'d2\'bb\'bf\'cc\'ca\'c0\'bd\'e7
+\f0  
+\f1 \'c8\'e7\'b4\'cb\'bc\'f2\'b5\'a5
+\f0 \
+[00:32.40]
+\f1 \'cc\'fd\'bc\'fb\'bb\'a8\'bf\'aa\'b5\'c4\'c9\'f9\'d2\'f4
+\f0  
+\f1 \'d5\'c0\'b7\'c5\'d1\'a4\'c0\'c3
+\f0 \
+[00:40.90]
+\f1 \'b8\'fa\'cb\'e6\'bd\'da\'c5\'c4
+\f0  
+\f1 \'be\'a1\'c7\'e9\'ca\'cd\'bb\'b3
+\f0 \
+[00:49.00]
+\f1 \'c2\'c3\'cd\'be\'b5\'c4\'be\'a1\'cd\'b7
+\f0  
+\f1 \'d3\'d0\'d0\'c7\'b3\'bd\'b4\'f3\'ba\'a3
+\f0 \
+[00:57.30]
+\f1 \'bc\'cc\'d0\'f8\'c7\'b0\'d0\'d0
+\f0  
+\f1 \'b2\'bb\'d4\'d9\'b9\'c2\'b5\'a5
+\f0 \
+[01:05.80]
+\f1 \'b3\'bf\'ea\'d8\'b5\'c4\'c3\'ce\'be\'b3
+\f0  
+\f1 \'ce\'c2\'c8\'e1\'c6\'da\'b4\'fd
+\f0 \
+[01:14.00]
+\f1 \'d3\'b5\'b1\'a7\'cb\'f9\'d3\'d0
+\f0  
+\f1 \'c3\'c0\'ba\'c3\'ce\'b4\'c0\'b4
+\f0 `\
+        \},\
+        \{\
+            id: 1,\
+            name: \'93
+\f1 \'ce\'c2\'c8\'e1\'b5\'c4\'cd\'ed\'b0\'b2
+\f0 \'94,\
+            artist: \'93
+\f1 \'bb\'a8\'bf\'aa\'b4\'f3\'c8\'cb
+\f0 \'94,\
+\pard\pardeftab720\partightenfactor0
+\cf3             src: "{\field{\*\fldinst{HYPERLINK "https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/%E6%B8%A9%E6%9F%94%E7%9A%84%E6%99%9A%E5%AE%89%20(1).mp3"}}{\fldrslt \cf4 \ul \ulc4 https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/
+\f1 \'ce\'c2\'c8\'e1\'b5\'c4\'cd\'ed\'b0\'b2
+\f0 %20(1).mp3}}",\
+\pard\pardeftab720\partightenfactor0
+\cf0             lrc: `[00:00.00]
+\f1 \'c4\'de\'ba\'e7\'b5\'c6\'c9\'c1\'cb\'b8
+\f0  
+\f1 \'b3\'c7\'ca\'d0\'b5\'c4\'c2\'f6\'b2\'ab
+\f0 \
+[00:07.20]
+\f1 \'bd\'da\'d7\'e0\'cc\'f8\'b6\'af
+\f0  
+\f1 \'d2\'b9\'c9\'ab\'c3\'d4\'bb\'f3
+\f0 \
+[00:14.80]
+\f1 \'b4\'a9\'cb\'f3\'d4\'da\'bd\'d6\'cd\'b7
+\f0  
+\f1 \'d7\'d4\'d3\'c9\'b5\'c4\'b7\'e7
+\f0 \
+[00:22.50]
+\f1 \'cd\'fc\'b5\'f4\'b7\'b3\'c4\'d5
+\f0  
+\f1 \'d5\'e2\'d2\'bb\'bf\'cc\'b7\'c5\'d7\'dd
+\f0 \
+[00:30.30]
+\f1 \'b5\'e7\'d2\'f4\'d3\'bf\'b6\'af
+\f0  
+\f1 \'c1\'e9\'bb\'ea\'ca\'a7\'d6\'d8
+\f0 \
+[00:38.00]
+\f1 \'ce\'e8\'b3\'d8\'d6\'d0\'d1\'eb
+\f0  
+\f1 \'cd\'fc\'bc\'c7\'ca\'b1\'bf\'d5
+\f0 \
+[00:45.70]
+\f1 \'c8\'c3\'d0\'c4\'cc\'f8
+\f0  
+\f1 \'b8\'fa\'cb\'e6\'b5\'cd\'d2\'f4\'b9\'b2\'c3\'f9
+\f0 \
+[00:53.20]
+\f1 \'d5\'fb\'d2\'b9\'bf\'f1\'bb\'b6
+\f0  
+\f1 \'d6\'b1\'b5\'bd\'cc\'ec\'c3\'f7
+\f0 \
+[01:01.00]
+\f1 \'c4\'de\'ba\'e7\'d2\'b9\'c7\'fa
+\f0  
+\f1 \'d3\'c0\'b2\'bb\'d6\'d5\'bd\'e1
+\f0 \
+[01:08.80]
+\f1 \'c3\'ce\'be\'b3\'d3\'eb\'cf\'d6\'ca\'b5
+\f0  
+\f1 \'c4\'a3\'ba\'fd\'c1\'cb\'b1\'df\'bd\'e7
+\f0 `\
+        \},\
+        \{\
+            id: 2,\
+            name: \'93
+\f1 \'c2\'fd\'c2\'fd\'c0\'b4
+\f0 \'94,\
+            artist: \'93
+\f1 \'bb\'a8\'bf\'aa
+\f0 \'94
+\f1 \'b4\'f3\'c8\'cb
+\f0 ,\
+\pard\pardeftab720\partightenfactor0
+\cf3             src: "{\field{\*\fldinst{HYPERLINK "https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/%E6%85%A2%E6%85%A2%E6%9D%A5.mp3"}}{\fldrslt \cf4 \ul \ulc4 https://raw.githubusercontent.com/csqmusic/my-music-player/refs/heads/main/
+\f1 \'c2\'fd\'c2\'fd\'c0\'b4
+\f0 .mp3}}",\
+\pard\pardeftab720\partightenfactor0
+\cf0             lrc: `[00:00.00]
+\f1 \'c7\'e0\'ca\'af\'d0\'a1\'be\'b6
+\f0  
+\f1 \'c2\'e4\'d2\'b6\'b7\'d7\'b7\'c9
+\f0 \
+[00:09.30]
+\f1 \'d1\'f4\'b9\'e2\'cd\'b8\'b9\'fd
+\f0  
+\f1 \'ca\'f7\'c9\'d2\'b5\'c4\'bc\'e4\'cf\'b6
+\f0 \
+[00:18.00]
+\f1 \'c4\'f1\'b6\'f9\'c7\'e1\'b3\'aa
+\f0  
+\f1 \'cf\'aa\'cb\'ae\'e4\'fd\'e4\'fd
+\f0 \
+[00:26.20]
+\f1 \'c9\'ee\'ba\'f4\'ce\'fc
+\f0  
+\f1 \'d7\'d4\'c8\'bb\'b5\'c4\'cf\'e3\'c6\'f8
+\f0 \
+[00:34.50]
+\f1 \'b7\'c5\'cf\'c2\'d0\'d0\'c4\'d2
+\f0  
+\f1 \'cc\'fd\'b7\'e7\'b5\'c4\'b9\'ca\'ca\'c2
+\f0 \
+[00:43.00]
+\f1 \'c3\'bf\'d2\'bb\'c6\'ac\'d2\'b6\'d7\'d3
+\f0  
+\f1 \'b6\'bc\'d3\'d0\'bb\'d8\'d2\'e4
+\f0 \
+[00:51.20]
+\f1 \'c9\'ad\'c1\'d6\'c2\'fe\'d3\'ce
+\f0  
+\f1 \'cd\'fc\'bc\'c7\'ca\'b1\'bc\'e4
+\f0 \
+[00:59.40]
+\f1 \'b7\'b5\'e8\'b1\'b9\'e9\'d5\'e6
+\f0  
+\f1 \'bc\'f2\'b5\'a5\'c8\'e7\'b3\'f5
+\f0 \
+[01:08.00]
+\f1 \'b8\'d0\'ca\'dc\'b4\'f3\'b5\'d8\'b5\'c4\'ce\'c2\'c5\'af\'ba\'f4\'ce\'fc
+\f0 \
+[01:16.20]
+\f1 \'c8\'c3\'d0\'c4\'d7\'d4\'d3\'c9
+\f0  
+\f1 \'bb\'d8\'b9\'e9\'c4\'fe\'be\'b2
+\f0 `\
+        \}\
+    ];\
+\
+    // ---------- 
+\f1 \'c8\'ab\'be\'d6\'b1\'e4\'c1\'bf
+\f0  ----------\
+    let currentSongIndex = 0;          // 
+\f1 \'b5\'b1\'c7\'b0\'b2\'a5\'b7\'c5\'b8\'e8\'c7\'fa\'cb\'f7\'d2\'fd
+\f0 \
+    let audio = new Audio();            // 
+\f1 \'d6\'f7\'d2\'f4\'c6\'b5\'d4\'aa\'cb\'d8
+\f0 \
+    let isPlaying = false;\
+    let currentLyrics = [];             // [\{time, text\}]\
+    let updateTimer = null;             // requestAnimationFrame or timeupdate 
+\f1 \'bc\'e0\'cc\'fd
+\f0 \
+    let isLoggedIn = false;\
+\
+    // DOM 
+\f1 \'d4\'aa\'cb\'d8
+\f0 \
+    const loginContainer = document.getElementById('loginContainer');\
+    const musicPlayerDiv = document.getElementById('musicPlayer');\
+    const songListEl = document.getElementById('songList');\
+    const playPauseBtn = document.getElementById('playPauseBtn');\
+    const prevBtn = document.getElementById('prevBtn');\
+    const nextBtn = document.getElementById('nextBtn');\
+    const progressBar = document.getElementById('progressBar');\
+    const progressFilled = document.getElementById('progressFilled');\
+    const currentTimeSpan = document.getElementById('currentTime');\
+    const durationSpan = document.getElementById('duration');\
+    const volumeBar = document.getElementById('volumeBar');\
+    const volumeFill = document.getElementById('volumeFill');\
+    const currentSongTitleSpan = document.getElementById('currentSongTitle');\
+    const currentArtistSpan = document.getElementById('currentArtist');\
+    const lyricsContentDiv = document.getElementById('lyricsContent');\
+    const logoutBtn = document.getElementById('logoutBtn');\
+\
+    // 
+\f1 \'b8\'a8\'d6\'fa\'ba\'af\'ca\'fd
+\f0 : 
+\f1 \'ca\'b1\'bc\'e4\'b8\'f1\'ca\'bd\'bb\'af
+\f0  mm:ss\
+    function formatTime(seconds) \{\
+        if (isNaN(seconds)) return "0:00";\
+        const mins = Math.floor(seconds / 60);\
+        const secs = Math.floor(seconds % 60);\
+        return `$\{mins\}:$\{secs < 10 ? '0' + secs : secs\}`;\
+    \}\
+\
+    // 
+\f1 \'bd\'e2\'ce\'f6
+\f0 LRC
+\f1 \'ce\'c4\'b1\'be
+\f0  -> 
+\f1 \'b7\'b5\'bb\'d8\'ca\'fd\'d7\'e9
+\f0  [\{time, text\}]\
+    function parseLRC(lrcText) \{\
+        const lines = lrcText.split('\\n');\
+        const parsed = [];\
+        const timeRegex = /\\[(\\d\{2\}):(\\d\{2\})\\.(\\d\{2,3\})\\]/;\
+        for (let line of lines) \{\
+            line = line.trim();\
+            if (!line) continue;\
+            const match = line.match(timeRegex);\
+            if (match) \{\
+                const minutes = parseInt(match[1], 10);\
+                const seconds = parseInt(match[2], 10);\
+                const millis = parseInt(match[3], 10);\
+                let timeSec = minutes * 60 + seconds + millis / 1000;\
+                const text = line.replace(timeRegex, '').trim();\
+                if (text) \{\
+                    parsed.push(\{ time: timeSec, text: text \});\
+                \}\
+            \} else \{\
+                // 
+\f1 \'c3\'bb\'d3\'d0\'ca\'b1\'bc\'e4\'b1\'ea\'c7\'a9\'b5\'c4\'ce\'c4\'b1\'be\'ba\'f6\'c2\'d4\'bb\'f2\'d5\'df\'d7\'f7\'ce\'aa\'c4\'ac\'c8\'cf\'a3\'bf\'ba\'f6\'c2\'d4\
+
+\f0             \}\
+        \}\
+        // 
+\f1 \'b0\'b4\'ca\'b1\'bc\'e4\'c5\'c5\'d0\'f2
+\f0 \
+        parsed.sort((a,b) => a.time - b.time);\
+        return parsed;\
+    \}\
+\
+    // 
+\f1 \'bc\'d3\'d4\'d8\'b8\'e8\'c7\'fa
+\f0 : 
+\f1 \'c7\'d0\'bb\'bb
+\f0 src, 
+\f1 \'b8\'fc\'d0\'c2
+\f0 UI, 
+\f1 \'bd\'e2\'ce\'f6\'b8\'e8\'b4\'ca
+\f0 \
+    function loadSong(index) \{\
+        if (index < 0) index = 0;\
+        if (index >= SONGS.length) index = 0;\
+        currentSongIndex = index;\
+        const song = SONGS[currentSongIndex];\
+        // 
+\f1 \'b8\'fc\'d0\'c2
+\f0 UI
+\f1 \'ce\'c4\'b1\'be
+\f0 \
+        currentSongTitleSpan.innerText = song.name;\
+        currentArtistSpan.innerText = song.artist;\
+        // 
+\f1 \'c7\'d0\'bb\'bb\'d2\'f4\'c6\'b5\'d4\'b4
+\f0 \
+        const wasPlaying = isPlaying;\
+        audio.pause();\
+        audio.src = song.src;\
+        audio.load();\
+        // 
+\f1 \'bd\'e2\'ce\'f6\'b8\'e8\'b4\'ca
+\f0 \
+        currentLyrics = parseLRC(song.lrc);\
+        renderLyrics(0); // 
+\f1 \'d6\'d8\'d6\'c3\'b8\'e8\'b4\'ca\'cf\'d4\'ca\'be\'a3\'ac\'b8\'df\'c1\'c1\'b5\'da
+\f0 0
+\f1 \'d0\'d0\'bb\'f2\'d5\'bc\'ce\'bb
+\f0 \
+        // 
+\f1 \'d6\'d8\'d6\'c3\'bd\'f8\'b6\'c8\'cc\'f5
+\f0 \
+        progressFilled.style.width = '0%';\
+        currentTimeSpan.innerText = '0:00';\
+        durationSpan.innerText = '0:00';\
+        \
+        // 
+\f1 \'c8\'e7\'b9\'fb\'bc\'d3\'d4\'d8\'c7\'b0\'d5\'fd\'d4\'da\'b2\'a5\'b7\'c5\'a3\'ac\'d4\'f2\'d7\'d4\'b6\'af\'b2\'a5\'b7\'c5
+\f0  (
+\f1 \'d3\'c9\'d3\'da
+\f0 load
+\f1 \'ba\'f3\'d0\'e8\'d2\'aa\'b5\'c8\'b4\'fd
+\f0 canplay, 
+\f1 \'b5\'ab\'ce\'aa\'c1\'cb\'ca\'d6\'ca\'c6\'cf\'de\'d6\'c6
+\f0 , 
+\f1 \'b5\'f7\'d3\'c3
+\f0 play)\
+        if (wasPlaying) \{\
+            const playPromise = audio.play();\
+            if (playPromise !== undefined) \{\
+                playPromise.then(() => \{\
+                    isPlaying = true;\
+                    updatePlayButtonIcon(true);\
+                \}).catch(() => \{\
+                    // 
+\f1 \'d7\'d4\'b6\'af\'b2\'a5\'b7\'c5\'b1\'bb\'d7\'e8\'d6\'b9\'a3\'ac\'d4\'dd\'cd\'a3\'d7\'b4\'cc\'ac
+\f0 \
+                    isPlaying = false;\
+                    updatePlayButtonIcon(false);\
+                \});\
+            \}\
+        \} else \{\
+            isPlaying = false;\
+            updatePlayButtonIcon(false);\
+        \}\
+        \
+        // 
+\f1 \'b8\'fc\'d0\'c2\'b8\'e8\'b5\'a5\'b8\'df\'c1\'c1
+\f0 \
+        highlightActiveSong();\
+        // 
+\f1 \'bb\'f1\'c8\'a1\'d7\'dc\'ca\'b1\'b3\'a4\'ba\'f3\'b8\'fc\'d0\'c2
+\f0 \
+        audio.onloadedmetadata = () => \{\
+            if (!isNaN(audio.duration)) \{\
+                durationSpan.innerText = formatTime(audio.duration);\
+            \}\
+        \};\
+    \}\
+\
+    // 
+\f1 \'b8\'f9\'be\'dd\'b5\'b1\'c7\'b0\'b2\'a5\'b7\'c5\'ca\'b1\'bc\'e4\'b8\'fc\'d0\'c2\'b8\'e8\'b4\'ca\'b8\'df\'c1\'c1\
+
+\f0     function updateLyricsByTime(currentTime) \{\
+        if (!currentLyrics.length) \{\
+            if (lyricsContentDiv.innerHTML.trim() === '' || lyricsContentDiv.children.length === 0) \{\
+                lyricsContentDiv.innerHTML = '<div class="lyric-line">
+\f2 \uc0\u55356 \u57269 
+\f0  
+\f1 \'d4\'dd\'ce\'de\'b9\'f6\'b6\'af\'b8\'e8\'b4\'ca\'a3\'ac\'cf\'ed\'ca\'dc\'d0\'fd\'c2\'c9\'b0\'c9
+\f0  
+\f2 \uc0\u55356 \u57269 
+\f0 </div>';\
+            \}\
+            return;\
+        \}\
+        let activeIndex = -1;\
+        for (let i = 0; i < currentLyrics.length; i++) \{\
+            if (currentTime >= currentLyrics[i].time) \{\
+                activeIndex = i;\
+            \} else \{\
+                break;\
+            \}\
+        \}\
+        if (activeIndex === -1 && currentLyrics.length > 0 && currentTime < currentLyrics[0].time) \{\
+            activeIndex = 0;\
+        \}\
+        renderLyrics(activeIndex);\
+    \}\
+    \
+    // 
+\f1 \'e4\'d6\'c8\'be\'b8\'e8\'b4\'ca\'c3\'e6\'b0\'e5\'a3\'ac\'b8\'df\'c1\'c1\'c4\'b3\'d2\'bb\'d0\'d0\'b2\'a2\'d7\'d4\'b6\'af\'b9\'f6\'b6\'af\
+
+\f0     function renderLyrics(activeIndex) \{\
+        if (!currentLyrics.length) \{\
+            lyricsContentDiv.innerHTML = '<div class="lyric-line">
+\f2 \uc0\u10024 
+\f0  
+\f1 \'b4\'bf\'d2\'f4\'c0\'d6
+\f0  / 
+\f1 \'ce\'de\'b8\'e8\'b4\'ca
+\f0  
+\f2 \uc0\u10024 
+\f0 </div>';\
+            return;\
+        \}\
+        let html = '';\
+        for (let i = 0; i < currentLyrics.length; i++) \{\
+            const line = currentLyrics[i].text;\
+            const activeClass = (i === activeIndex) ? 'active' : '';\
+            html += `<div class="lyric-line $\{activeClass\}" data-line-index="$\{i\}">$\{escapeHtml(line)\}</div>`;\
+        \}\
+        lyricsContentDiv.innerHTML = html;\
+        if (activeIndex >= 0) \{\
+            const activeElement = lyricsContentDiv.querySelector(`.lyric-line.active`);\
+            if (activeElement) \{\
+                activeElement.scrollIntoView(\{ behavior: 'smooth', block: 'center' \});\
+            \}\
+        \}\
+    \}\
+    \
+    // 
+\f1 \'bc\'f2\'b5\'a5\'b7\'c0
+\f0 XSS\
+    function escapeHtml(str) \{\
+        return str.replace(/[&<>]/g, function(m) \{\
+            if (m === '&') return '&amp;';\
+            if (m === '<') return '&lt;';\
+            if (m === '>') return '&gt;';\
+            return m;\
+        \});\
+    \}\
+\
+    // 
+\f1 \'b2\'a5\'b7\'c5
+\f0 /
+\f1 \'d4\'dd\'cd\'a3\'c7\'d0\'bb\'bb
+\f0 \
+    function togglePlayPause() \{\
+        if (audio.src === '') \{\
+            loadSong(currentSongIndex);\
+        \}\
+        if (isPlaying) \{\
+            audio.pause();\
+            isPlaying = false;\
+            updatePlayButtonIcon(false);\
+        \} else \{\
+            const playPromise = audio.play();\
+            if (playPromise !== undefined) \{\
+                playPromise.then(() => \{\
+                    isPlaying = true;\
+                    updatePlayButtonIcon(true);\
+                \}).catch(err => \{\
+                    console.warn("
+\f1 \'b2\'a5\'b7\'c5\'ca\'a7\'b0\'dc
+\f0 :", err);\
+                    isPlaying = false;\
+                    updatePlayButtonIcon(false);\
+                \});\
+            \}\
+        \}\
+    \}\
+    \
+    function updatePlayButtonIcon(playing) \{\
+        if (playing) \{\
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';\
+        \} else \{\
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';\
+        \}\
+    \}\
+    \
+    // 
+\f1 \'cf\'c2\'d2\'bb\'ca\'d7
+\f0 \
+    function nextSong() \{\
+        let newIndex = (currentSongIndex + 1) % SONGS.length;\
+        loadSong(newIndex);\
+        // 
+\f1 \'d7\'d4\'b6\'af\'b2\'a5\'b7\'c5
+\f0 (
+\f1 \'ca\'d6\'ca\'c6\'b4\'a5\'b7\'a2\'a3\'ac\'bf\'c9\'d2\'d4\'b2\'a5\'b7\'c5
+\f0 )\
+        audio.play().then(() => \{\
+            isPlaying = true;\
+            updatePlayButtonIcon(true);\
+        \}).catch(() => \{\
+            isPlaying = false;\
+            updatePlayButtonIcon(false);\
+        \});\
+    \}\
+    \
+    function prevSong() \{\
+        let newIndex = (currentSongIndex - 1 + SONGS.length) % SONGS.length;\
+        loadSong(newIndex);\
+        audio.play().then(() => \{\
+            isPlaying = true;\
+            updatePlayButtonIcon(true);\
+        \}).catch(() => \{\
+            isPlaying = false;\
+            updatePlayButtonIcon(false);\
+        \});\
+    \}\
+    \
+    // 
+\f1 \'bd\'f8\'b6\'c8\'cc\'f5\'cd\'cf\'b6\'af
+\f0 \
+    function setProgress(e) \{\
+        const rect = progressBar.getBoundingClientRect();\
+        let clickX = e.clientX - rect.left;\
+        let percent = clickX / rect.width;\
+        percent = Math.min(1, Math.max(0, percent));\
+        if (audio.duration && !isNaN(audio.duration)) \{\
+            audio.currentTime = percent * audio.duration;\
+        \}\
+    \}\
+    \
+    // 
+\f1 \'d2\'f4\'c1\'bf\'bf\'d8\'d6\'c6
+\f0 \
+    function setVolume(e) \{\
+        const rect = volumeBar.getBoundingClientRect();\
+        let clickX = e.clientX - rect.left;\
+        let vol = clickX / rect.width;\
+        vol = Math.min(1, Math.max(0, vol));\
+        audio.volume = vol;\
+        volumeFill.style.width = (vol * 100) + '%';\
+    \}\
+    \
+    // 
+\f1 \'b3\'f5\'ca\'bc\'bb\'af\'d2\'f4\'c1\'bf
+\f0 UI\
+    function initVolume() \{\
+        audio.volume = 0.7;\
+        volumeFill.style.width = '70%';\
+    \}\
+    \
+    // 
+\f1 \'b8\'e8\'b5\'a5\'e4\'d6\'c8\'be
+\f0 \
+    function renderPlaylist() \{\
+        songListEl.innerHTML = '';\
+        SONGS.forEach((song, idx) => \{\
+            const li = document.createElement('li');\
+            li.className = 'song-item';\
+            if (idx === currentSongIndex) li.classList.add('active');\
+            li.innerHTML = `\
+                <div class="song-cover-small"><i class="fas fa-music"></i></div>\
+                <div class="song-info">\
+                    <div class="song-title">$\{escapeHtml(song.name)\}</div>\
+                    <div class="song-artist">$\{escapeHtml(song.artist)\}</div>\
+                </div>\
+            `;\
+            li.addEventListener('click', () => \{\
+                if (currentSongIndex === idx && audio.src && audio.src.includes(song.src)) \{\
+                    // 
+\f1 \'cf\'e0\'cd\'ac\'b8\'e8\'c7\'fa\'b2\'bb\'d6\'d8\'d0\'c2\'bc\'d3\'d4\'d8\'a3\'ac\'b5\'ab\'c8\'f4\'d4\'dd\'cd\'a3\'d4\'f2\'b2\'a5\'b7\'c5
+\f0 \
+                    if (!isPlaying) togglePlayPause();\
+                    return;\
+                \}\
+                loadSong(idx);\
+                // 
+\f1 \'d3\'c3\'bb\'a7\'d6\'f7\'b6\'af\'b5\'e3\'bb\'f7\'b8\'e8\'b5\'a5\'ba\'f3\'d7\'d4\'b6\'af\'b2\'a5\'b7\'c5
+\f0 \
+                audio.play().then(() => \{\
+                    isPlaying = true;\
+                    updatePlayButtonIcon(true);\
+                \}).catch(() => \{\
+                    isPlaying = false;\
+                    updatePlayButtonIcon(false);\
+                \});\
+            \});\
+            songListEl.appendChild(li);\
+        \});\
+    \}\
+    \
+    function highlightActiveSong() \{\
+        const items = document.querySelectorAll('.song-item');\
+        items.forEach((item, idx) => \{\
+            if (idx === currentSongIndex) \{\
+                item.classList.add('active');\
+            \} else \{\
+                item.classList.remove('active');\
+            \}\
+        \});\
+    \}\
+    \
+    // 
+\f1 \'ca\'b1\'bc\'e4\'b8\'fc\'d0\'c2\'bc\'e0\'cc\'fd
+\f0 \
+    function bindAudioEvents() \{\
+        audio.addEventListener('timeupdate', () => \{\
+            if (audio.duration && !isNaN(audio.duration)) \{\
+                const percent = (audio.currentTime / audio.duration) * 100;\
+                progressFilled.style.width = percent + '%';\
+                currentTimeSpan.innerText = formatTime(audio.currentTime);\
+                updateLyricsByTime(audio.currentTime);\
+            \}\
+        \});\
+        audio.addEventListener('ended', () => \{\
+            // 
+\f1 \'d7\'d4\'b6\'af\'cf\'c2\'d2\'bb\'ca\'d7
+\f0 \
+            nextSong();\
+        \});\
+        audio.addEventListener('canplay', () => \{\
+            if (!isNaN(audio.duration)) durationSpan.innerText = formatTime(audio.duration);\
+        \});\
+    \}\
+    \
+    // 
+\f1 \'cd\'cb\'b3\'f6\'b5\'c7\'c2\'bc
+\f0 \
+    function logout() \{\
+        isLoggedIn = false;\
+        audio.pause();\
+        isPlaying = false;\
+        loginContainer.style.display = 'flex';\
+        musicPlayerDiv.style.display = 'none';\
+        // 
+\f1 \'c7\'e5\'bf\'d5\'b5\'c7\'c2\'bc\'d7\'b4\'cc\'ac
+\f0 \
+        sessionStorage.removeItem('musicLogged');\
+    \}\
+    \
+    // 
+\f1 \'b5\'c7\'c2\'bc\'d1\'e9\'d6\'a4
+\f0 \
+\pard\pardeftab720\partightenfactor0
+\cf5     
+\f3\fs26 \cf6 function\cf5  \cf7 login\cf8 (\cf5 username\cf8 ,\cf5  password\cf8 )\cf5  \cf8 \{\cf5 \
+    \cf6 if\cf5  \cf8 (\cf5 username \cf7 ===\cf5  \cf9 \'93suqing\'94\cf5  \cf7 &&\cf5  password \cf7 ===\cf5  \cf9 \'93suqing\'94\cf8 )\cf5  \cf8 \{\cf5 \
+        
+\f4\i \cf10 // 
+\f1\i0 \'b5\'c7\'c2\'bc\'b3\'c9\'b9\'a6
+\f4\i ...
+\f3\i0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0             isLoggedIn = true;\
+            sessionStorage.setItem('musicLogged', 'true');\
+            loginContainer.style.display = 'none';\
+            musicPlayerDiv.style.display = 'block';\
+            // 
+\f1 \'b3\'f5\'ca\'bc\'bb\'af\'b2\'a5\'b7\'c5\'c6\'f7\'ba\'cb\'d0\'c4
+\f0 \
+            if (!audio.src) \{\
+                loadSong(0);\
+            \} else \{\
+                // 
+\f1 \'cb\'a2\'d0\'c2\'bd\'e7\'c3\'e6\'b8\'e8\'b5\'a5\'b8\'df\'c1\'c1
+\f0 \
+                highlightActiveSong();\
+                renderPlaylist(); // 
+\f1 \'d6\'d8\'d0\'c2\'e4\'d6\'c8\'be\'b8\'e8\'b5\'a5\'c8\'b7\'b1\'a3\'ca\'c2\'bc\'fe
+\f0 \
+            \}\
+            renderPlaylist();\
+            bindAudioEvents();\
+            initVolume();\
+            // 
+\f1 \'c8\'e7\'b9\'fb\'b5\'b1\'c7\'b0\'ce\'de\'b8\'e8\'b4\'ca\'c4\'da\'c8\'dd
+\f0  
+\f1 \'be\'cd\'cf\'d4\'ca\'be\'cc\'e1\'ca\'be
+\f0 \
+            if (currentLyrics.length === 0 && SONGS[currentSongIndex]) \{\
+                const initLrc = parseLRC(SONGS[currentSongIndex].lrc);\
+                currentLyrics = initLrc;\
+                renderLyrics(0);\
+            \}\
+            updateLyricsByTime(0);\
+            return true;\
+        \}\
+        alert("
+\f1 \'c7\'eb\'cc\'ee\'d0\'b4\'d3\'c3\'bb\'a7\'c3\'fb\'ba\'cd\'c3\'dc\'c2\'eb
+\f0  (
+\f1 \'c8\'ce\'d2\'e2\'c4\'da\'c8\'dd\'bc\'b4\'bf\'c9
+\f0 )");\
+        return false;\
+    \}\
+    \
+    // 
+\f1 \'ca\'c2\'bc\'fe\'b0\'f3\'b6\'a8
+\f0 \
+    function bindControls() \{\
+        playPauseBtn.addEventListener('click', togglePlayPause);\
+        prevBtn.addEventListener('click', prevSong);\
+        nextBtn.addEventListener('click', nextSong);\
+        progressBar.addEventListener('click', setProgress);\
+        volumeBar.addEventListener('click', setVolume);\
+        logoutBtn.addEventListener('click', logout);\
+        document.getElementById('doLoginBtn').addEventListener('click', () => \{\
+            const user = document.getElementById('username').value;\
+            const pwd = document.getElementById('password').value;\
+            login(user, pwd);\
+        \});\
+        // 
+\f1 \'d4\'ca\'d0\'ed\'bb\'d8\'b3\'b5\'b5\'c7\'c2\'bc
+\f0 \
+        const pwdInput = document.getElementById('password');\
+        pwdInput.addEventListener('keypress', (e) => \{\
+            if (e.key === 'Enter') \{\
+                document.getElementById('doLoginBtn').click();\
+            \}\
+        \});\
+    \}\
+    \
+    // 
+\f1 \'bc\'ec\'b2\'e9
+\f0 sessionStorage
+\f1 \'d7\'d4\'b6\'af\'b5\'c7\'c2\'bc
+\f0 \
+    function checkAutoLogin() \{\
+        if (sessionStorage.getItem('musicLogged') === 'true') \{\
+            // 
+\f1 \'d7\'d4\'b6\'af\'cc\'ee\'b3\'e4\'d1\'dd\'ca\'be
+\f0 \
+            document.getElementById('username').value = "
+\f1 \'c0\'d6\'c3\'d4
+\f0 ";\
+            document.getElementById('password').value = "demo";\
+            login("
+\f1 \'c0\'d6\'c3\'d4
+\f0 ", "demo");\
+        \} else \{\
+            loginContainer.style.display = 'flex';\
+            musicPlayerDiv.style.display = 'none';\
+        \}\
+    \}\
+    \
+    // 
+\f1 \'b3\'f5\'ca\'bc\'bb\'af
+\f0 \
+    function init() \{\
+        bindControls();\
+        checkAutoLogin();\
+    \}\
+    init();\
+</script>\
+</body>\
+</html>\
+}
