@@ -21,58 +21,59 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
         }
 
         /* 登录面板 & 播放器面板公共卡片风格 */
         .glass-card {
-            background: rgba(20, 28, 40, 0.75);
+            background: rgba(20, 28, 40, 0.85);
             backdrop-filter: blur(16px);
-            border-radius: 2rem;
+            border-radius: 1.8rem;
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
         }
 
-        /* 登录界面 */
+        /* ========== 登录界面 移动端优化 ========== */
         .login-container {
             width: 100%;
-            max-width: 420px;
-            min-width: 280px;
-            padding: 2.2rem 1.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 1.8rem 1.5rem;
             text-align: center;
-            box-sizing: border-box;
             animation: fadeInUp 0.5s ease;
         }
         .login-container h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             background: linear-gradient(120deg, #e0e7ff, #a5b4fc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
         }
         .login-container p {
             color: #9ca3af;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+            font-size: 0.85rem;
         }
         .input-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             text-align: left;
         }
         .input-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             font-size: 0.85rem;
             font-weight: 500;
             color: #cbd5e6;
         }
         .input-group input {
             width: 100%;
-            padding: 0.9rem 1rem;
-            box-sizing: border-box;
-            background: rgba(0, 0, 0, 0.35);
+            padding: 0.8rem 1rem;
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 1.2rem;
             font-size: 1rem;
@@ -86,8 +87,7 @@
         }
         .login-btn {
             width: 100%;
-            padding: 0.9rem;
-            box-sizing: border-box;
+            padding: 0.8rem;
             background: linear-gradient(95deg, #4f46e5, #6366f1);
             border: none;
             border-radius: 2rem;
@@ -96,25 +96,26 @@
             color: white;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 0.5rem;
         }
         .login-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
         }
         .demo-tip {
-            margin-top: 1.5rem;
-            font-size: 0.75rem;
+            margin-top: 1.2rem;
+            font-size: 0.7rem;
             color: #6b7280;
         }
 
-        /* 主播放器 (初始隐藏) */
+        /* 主播放器 */
         .music-player {
             display: none;
-            width: 1300px;
-            max-width: 98vw;
+            width: 100%;
+            max-width: 1300px;
             min-height: 620px;
             backdrop-filter: blur(20px);
-            border-radius: 2rem;
+            border-radius: 1.8rem;
             overflow: hidden;
             animation: fadeInUp 0.5s ease;
         }
@@ -128,16 +129,16 @@
             width: 280px;
             background: rgba(0, 0, 0, 0.45);
             backdrop-filter: blur(4px);
-            padding: 1.5rem 0.8rem;
+            padding: 1.2rem 0.5rem;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
         .playlist-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 0 1rem 1rem;
+            align-items: center;
+            padding: 0 1rem 0.8rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
         .playlist-header h3 {
             color: #f0f3ff;
@@ -149,6 +150,7 @@
             cursor: pointer;
             font-size: 1.2rem;
             transition: 0.2s;
+            padding: 6px;
         }
         .logout-icon:hover {
             color: #f87171;
@@ -163,30 +165,31 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 0.8rem 1rem;
+            padding: 0.8rem 0.8rem;
             margin-bottom: 6px;
             border-radius: 1.2rem;
             cursor: pointer;
             transition: all 0.2s;
             background: rgba(255,255,255,0.02);
         }
-        .song-item:hover {
-            background: rgba(129, 140, 248, 0.2);
+        .song-item:active {
+            background: rgba(129, 140, 248, 0.3);
+            transform: scale(0.98);
         }
         .song-item.active {
             background: linear-gradient(95deg, rgba(79, 70, 229, 0.6), rgba(99, 102, 241, 0.4));
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .song-cover-small {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: #2d3748;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #a5b4fc;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         .song-info {
             flex: 1;
@@ -194,35 +197,35 @@
         .song-title {
             font-weight: 600;
             color: #eef2ff;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
         .song-artist {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #94a3b8;
         }
         /* 右侧主内容区 */
         .main-panel {
             flex: 1;
-            padding: 2rem 2rem 1.8rem;
+            padding: 1.5rem 1.2rem 1.2rem;
             display: flex;
             flex-direction: column;
         }
         .now-playing-card {
             display: flex;
             align-items: center;
-            gap: 1.8rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
         .cover-art {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             background: radial-gradient(circle at 30% 20%, #2d3a5e, #0f172a);
-            border-radius: 28px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             color: #818cf8;
             box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);
         }
@@ -230,65 +233,67 @@
             flex: 1;
         }
         .track-name {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: white;
             letter-spacing: -0.3px;
         }
         .track-artist {
             color: #b9c2d4;
-            margin-top: 6px;
+            margin-top: 4px;
+            font-size: 0.85rem;
         }
         /* 控制条 */
         .controls {
             background: rgba(0,0,0,0.35);
-            border-radius: 2rem;
-            padding: 1rem 1.5rem;
-            margin: 1rem 0 1.5rem;
+            border-radius: 1.8rem;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0 1rem;
         }
         .playback-buttons {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.8rem;
-            margin-bottom: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 0.8rem;
         }
         .ctrl-btn {
             background: none;
             border: none;
             color: #e2e8f0;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             cursor: pointer;
             transition: 0.2s;
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
-        .ctrl-btn:hover {
-            background: rgba(255,255,255,0.1);
-            transform: scale(1.05);
+        .ctrl-btn:active {
+            background: rgba(255,255,255,0.15);
+            transform: scale(0.96);
         }
         .play-btn {
             background: white;
             color: #1e293b;
             box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-        }
-        .play-btn:hover {
-            transform: scale(1.08);
+            width: 60px;
+            height: 60px;
+            font-size: 2rem;
         }
         .progress-area {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.75rem;
+            gap: 10px;
+            font-size: 0.7rem;
             color: #cbd5e1;
+            margin-bottom: 0.6rem;
         }
         .progress-bar {
             flex: 1;
-            height: 5px;
+            height: 6px;
             background: rgba(255,255,255,0.2);
             border-radius: 10px;
             cursor: pointer;
@@ -299,18 +304,16 @@
             height: 100%;
             background: linear-gradient(90deg, #818cf8, #c084fc);
             border-radius: 10px;
-            position: relative;
         }
         .volume-wrap {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 12px;
+            gap: 10px;
             justify-content: flex-end;
         }
         .volume-slider {
             width: 100px;
-            height: 4px;
+            height: 5px;
             background: rgba(255,255,255,0.3);
             border-radius: 5px;
             cursor: pointer;
@@ -325,27 +328,27 @@
         .lyrics-container {
             background: rgba(0,0,0,0.35);
             border-radius: 1.5rem;
-            padding: 1rem 1.2rem;
+            padding: 0.8rem 1rem;
             flex: 1;
-            min-height: 200px;
-            max-height: 280px;
+            min-height: 180px;
+            max-height: 260px;
             overflow-y: auto;
             scroll-behavior: smooth;
         }
         .lyrics-title {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #9ca3af;
             letter-spacing: 1px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             border-left: 3px solid #818cf8;
             padding-left: 10px;
         }
         .lyric-line {
-            padding: 8px 12px;
-            font-size: 0.95rem;
+            padding: 6px 10px;
+            font-size: 0.9rem;
             color: #cbd5e6;
             transition: all 0.2s;
-            border-radius: 40px;
+            border-radius: 30px;
             line-height: 1.4;
         }
         .lyric-line.active {
@@ -353,11 +356,10 @@
             font-weight: 600;
             background: rgba(129, 140, 248, 0.3);
             transform: scale(1.02);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
         /* 滚动条 */
         ::-webkit-scrollbar {
-            width: 5px;
+            width: 4px;
         }
         ::-webkit-scrollbar-track {
             background: rgba(0,0,0,0.2);
@@ -377,19 +379,131 @@
                 transform: translateY(0);
             }
         }
-        @media (max-width: 780px) {
+
+        /* ========== 移动端专项适配 (屏幕宽度 ≤ 640px) ========== */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
+            }
+            .login-container {
+                padding: 1.5rem 1.2rem;
+                max-width: 95%;
+            }
+            .login-container h1 {
+                font-size: 1.6rem;
+                white-space: normal;
+                word-break: keep-all;
+            }
+            .login-container p {
+                font-size: 0.8rem;
+            }
+            .input-group input {
+                padding: 0.7rem 0.9rem;
+                font-size: 0.95rem;
+            }
+            .login-btn {
+                padding: 0.7rem;
+                font-size: 0.95rem;
+            }
             .playlist-panel {
                 width: 100%;
                 border-right: none;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
-                max-height: 280px;
+                max-height: 260px;
                 overflow-y: auto;
+                padding: 1rem 0.3rem;
             }
             .player-grid {
                 flex-direction: column;
             }
+            .main-panel {
+                padding: 1rem;
+            }
+            .now-playing-card {
+                gap: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            .cover-art {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2rem;
+                border-radius: 20px;
+            }
             .track-name {
+                font-size: 1.2rem;
+            }
+            .track-artist {
+                font-size: 0.75rem;
+            }
+            .controls {
+                padding: 0.6rem 0.8rem;
+            }
+            .playback-buttons {
+                gap: 1rem;
+            }
+            .ctrl-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1.5rem;
+            }
+            .play-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 1.7rem;
+            }
+            .progress-area {
+                gap: 8px;
+                font-size: 0.65rem;
+            }
+            .volume-slider {
+                width: 80px;
+            }
+            .lyrics-container {
+                min-height: 150px;
+                max-height: 220px;
+                padding: 0.6rem 0.8rem;
+            }
+            .lyric-line {
+                font-size: 0.85rem;
+                padding: 5px 8px;
+            }
+            .song-item {
+                padding: 0.7rem 0.6rem;
+                gap: 10px;
+            }
+            .song-cover-small {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+            .song-title {
+                font-size: 0.85rem;
+            }
+            .song-artist {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* 极小屏幕 (宽度 ≤ 380px) 进一步紧凑 */
+        @media (max-width: 380px) {
+            .login-container {
+                padding: 1.2rem 1rem;
+            }
+            .track-name {
+                font-size: 1rem;
+            }
+            .ctrl-btn {
+                width: 40px;
+                height: 40px;
                 font-size: 1.3rem;
+            }
+            .play-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+            }
+            .volume-slider {
+                width: 70px;
             }
         }
     </style>
@@ -470,7 +584,6 @@
 
 <script>
     // ---------- 歌曲库数据 (包含歌曲地址、歌词LRC) ----------
-    // 使用 SoundHelix 测试音频 (公开无版权限制，仅用于技术演示)
     const SONGS = [
         {
             id: 0,
@@ -523,11 +636,10 @@
     ];
 
     // ---------- 全局变量 ----------
-    let currentSongIndex = 0;          // 当前播放歌曲索引
-    let audio = new Audio();            // 主音频元素
+    let currentSongIndex = 0;
+    let audio = new Audio();
     let isPlaying = false;
-    let currentLyrics = [];             // [{time, text}]
-    let updateTimer = null;             // requestAnimationFrame or timeupdate 监听
+    let currentLyrics = [];
     let isLoggedIn = false;
 
     // DOM 元素
@@ -548,7 +660,6 @@
     const lyricsContentDiv = document.getElementById('lyricsContent');
     const logoutBtn = document.getElementById('logoutBtn');
 
-    // 辅助函数: 时间格式化 mm:ss
     function formatTime(seconds) {
         if (isNaN(seconds)) return "0:00";
         const mins = Math.floor(seconds / 60);
@@ -556,7 +667,6 @@
         return `${mins}:${secs < 10 ? '0' + secs : secs}`;
     }
 
-    // 解析LRC文本 -> 返回数组 [{time, text}]
     function parseLRC(lrcText) {
         const lines = lrcText.split('\n');
         const parsed = [];
@@ -574,38 +684,29 @@
                 if (text) {
                     parsed.push({ time: timeSec, text: text });
                 }
-            } else {
-                // 没有时间标签的文本忽略或者作为默认？忽略
             }
         }
-        // 按时间排序
         parsed.sort((a,b) => a.time - b.time);
         return parsed;
     }
 
-    // 加载歌曲: 切换src, 更新UI, 解析歌词
     function loadSong(index) {
         if (index < 0) index = 0;
         if (index >= SONGS.length) index = 0;
         currentSongIndex = index;
         const song = SONGS[currentSongIndex];
-        // 更新UI文本
         currentSongTitleSpan.innerText = song.name;
         currentArtistSpan.innerText = song.artist;
-        // 切换音频源
         const wasPlaying = isPlaying;
         audio.pause();
         audio.src = song.src;
         audio.load();
-        // 解析歌词
         currentLyrics = parseLRC(song.lrc);
-        renderLyrics(0); // 重置歌词显示，高亮第0行或占位
-        // 重置进度条
+        renderLyrics(0);
         progressFilled.style.width = '0%';
         currentTimeSpan.innerText = '0:00';
         durationSpan.innerText = '0:00';
         
-        // 如果加载前正在播放，则自动播放 (由于load后需要等待canplay, 但为了手势限制, 调用play)
         if (wasPlaying) {
             const playPromise = audio.play();
             if (playPromise !== undefined) {
@@ -613,7 +714,6 @@
                     isPlaying = true;
                     updatePlayButtonIcon(true);
                 }).catch(() => {
-                    // 自动播放被阻止，暂停状态
                     isPlaying = false;
                     updatePlayButtonIcon(false);
                 });
@@ -623,9 +723,7 @@
             updatePlayButtonIcon(false);
         }
         
-        // 更新歌单高亮
         highlightActiveSong();
-        // 获取总时长后更新
         audio.onloadedmetadata = () => {
             if (!isNaN(audio.duration)) {
                 durationSpan.innerText = formatTime(audio.duration);
@@ -633,7 +731,6 @@
         };
     }
 
-    // 根据当前播放时间更新歌词高亮
     function updateLyricsByTime(currentTime) {
         if (!currentLyrics.length) {
             if (lyricsContentDiv.innerHTML.trim() === '' || lyricsContentDiv.children.length === 0) {
@@ -655,7 +752,6 @@
         renderLyrics(activeIndex);
     }
     
-    // 渲染歌词面板，高亮某一行并自动滚动
     function renderLyrics(activeIndex) {
         if (!currentLyrics.length) {
             lyricsContentDiv.innerHTML = '<div class="lyric-line">✨ 纯音乐 / 无歌词 ✨</div>';
@@ -676,7 +772,6 @@
         }
     }
     
-    // 简单防XSS
     function escapeHtml(str) {
         return str.replace(/[&<>]/g, function(m) {
             if (m === '&') return '&amp;';
@@ -686,7 +781,6 @@
         });
     }
 
-    // 播放/暂停切换
     function togglePlayPause() {
         if (audio.src === '') {
             loadSong(currentSongIndex);
@@ -718,11 +812,9 @@
         }
     }
     
-    // 下一首
     function nextSong() {
         let newIndex = (currentSongIndex + 1) % SONGS.length;
         loadSong(newIndex);
-        // 自动播放(手势触发，可以播放)
         audio.play().then(() => {
             isPlaying = true;
             updatePlayButtonIcon(true);
@@ -744,7 +836,6 @@
         });
     }
     
-    // 进度条拖动
     function setProgress(e) {
         const rect = progressBar.getBoundingClientRect();
         let clickX = e.clientX - rect.left;
@@ -755,7 +846,6 @@
         }
     }
     
-    // 音量控制
     function setVolume(e) {
         const rect = volumeBar.getBoundingClientRect();
         let clickX = e.clientX - rect.left;
@@ -765,13 +855,11 @@
         volumeFill.style.width = (vol * 100) + '%';
     }
     
-    // 初始化音量UI
     function initVolume() {
         audio.volume = 0.7;
         volumeFill.style.width = '70%';
     }
     
-    // 歌单渲染
     function renderPlaylist() {
         songListEl.innerHTML = '';
         SONGS.forEach((song, idx) => {
@@ -787,12 +875,10 @@
             `;
             li.addEventListener('click', () => {
                 if (currentSongIndex === idx && audio.src && audio.src.includes(song.src)) {
-                    // 相同歌曲不重新加载，但若暂停则播放
                     if (!isPlaying) togglePlayPause();
                     return;
                 }
                 loadSong(idx);
-                // 用户主动点击歌单后自动播放
                 audio.play().then(() => {
                     isPlaying = true;
                     updatePlayButtonIcon(true);
@@ -816,7 +902,6 @@
         });
     }
     
-    // 时间更新监听
     function bindAudioEvents() {
         audio.addEventListener('timeupdate', () => {
             if (audio.duration && !isNaN(audio.duration)) {
@@ -827,7 +912,6 @@
             }
         });
         audio.addEventListener('ended', () => {
-            // 自动下一首
             nextSong();
         });
         audio.addEventListener('canplay', () => {
@@ -835,37 +919,30 @@
         });
     }
     
-    // 退出登录
     function logout() {
         isLoggedIn = false;
         audio.pause();
         isPlaying = false;
         loginContainer.style.display = 'flex';
         musicPlayerDiv.style.display = 'none';
-        // 清空登录状态
         sessionStorage.removeItem('musicLogged');
     }
     
-    // 登录验证
     function login(username, password) {
-    if (username === "suqing" && password === "suqing") {
-        // 登录成功...
+        if (username === "suqing" && password === "suqing") {
             isLoggedIn = true;
             sessionStorage.setItem('musicLogged', 'true');
             loginContainer.style.display = 'none';
             musicPlayerDiv.style.display = 'block';
-            // 初始化播放器核心
             if (!audio.src) {
                 loadSong(0);
             } else {
-                // 刷新界面歌单高亮
                 highlightActiveSong();
-                renderPlaylist(); // 重新渲染歌单确保事件
+                renderPlaylist();
             }
             renderPlaylist();
             bindAudioEvents();
             initVolume();
-            // 如果当前无歌词内容 就显示提示
             if (currentLyrics.length === 0 && SONGS[currentSongIndex]) {
                 const initLrc = parseLRC(SONGS[currentSongIndex].lrc);
                 currentLyrics = initLrc;
@@ -874,11 +951,10 @@
             updateLyricsByTime(0);
             return true;
         }
-        alert("请填写用户名和密码 (即可)");
+        alert("用户名或密码错误");
         return false;
     }
     
-    // 事件绑定
     function bindControls() {
         playPauseBtn.addEventListener('click', togglePlayPause);
         prevBtn.addEventListener('click', prevSong);
@@ -891,7 +967,6 @@
             const pwd = document.getElementById('password').value;
             login(user, pwd);
         });
-        // 允许回车登录
         const pwdInput = document.getElementById('password');
         pwdInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -900,20 +975,17 @@
         });
     }
     
-    // 检查sessionStorage自动登录
     function checkAutoLogin() {
         if (sessionStorage.getItem('musicLogged') === 'true') {
-            // 自动填充演示
-            document.getElementById('username').value = "乐迷";
-            document.getElementById('password').value = "demo";
-            login("乐迷", "demo");
+            document.getElementById('username').value = "suqing";
+            document.getElementById('password').value = "suqing";
+            login("suqing", "suqing");
         } else {
             loginContainer.style.display = 'flex';
             musicPlayerDiv.style.display = 'none';
         }
     }
     
-    // 初始化
     function init() {
         bindControls();
         checkAutoLogin();
